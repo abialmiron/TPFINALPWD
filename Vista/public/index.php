@@ -7,7 +7,11 @@ include_once("../estructura/header.php");
         <video autoplay muted loop>
             <source src="../images/nursery_-_567-converted.mp4" type="video/mp4">
         </video>
-        <h2>Video Background</h2>
+        <div class="logo-animado">
+            <?php include_once("../images/logotipo_animacion.svg"); ?>
+        </div>
+        <!-- <img src="../images/logotipo_animacion.svg" alt=""> -->
+        <!-- <h2>Video Background</h2> -->
     </div>
     <div class="container">
         <div class="row">

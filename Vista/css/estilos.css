@@ -28,6 +28,15 @@
   position: fixed;
   z-index: -100;
 }
+.paravideo img{
+  width: 50%;
+  height: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  z-index: -100;
+}
 body {
   margin: 0;
   padding: 0;
@@ -43,5 +52,14 @@ main {
 }
 body::-webkit-scrollbar {
   width: 0;
+ }
+
+ .logo-animado{
+  height: 50vh;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  position: fixed;
+  z-index: -100;
  }
 
