@@ -34,5 +34,20 @@
         </li>
       </ul>
     </div>
+    <!-- Right elements -->
+    <div class="d-flex align-items-center">
+        <div class=" dropdown">
+          <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <span class="p-1">Omar | Administrador</span>
+          </a> 
+          <ul class="dropdown-menu dropdown-menu-end text-small shadow" style="">
+            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href="#">Elegir Rol</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sign out</a></li>
+          </ul>
+        </div>
+    </div>
   </div>
 </nav>

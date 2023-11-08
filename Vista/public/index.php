@@ -21,15 +21,9 @@ include_once("../estructura/menu.php");
                     <div class="container">
                         <div class="row">
                             <div class="col-12">
-                                <h1>Home de la vista pública</h1>
-                                <p>lorem ipsum dolor sit amet consectetur a dipisicing</p>
-                                <p>lorem ipsum dolor sit amet consectetur a dipisicing</p>
-                                <p>lorem ipsum dolor sit amet consectetur a dipisicing</p>
-                                <p>lorem ipsum dolor sit amet consectetur a dipisicing</p>
-                                <p>lorem ipsum dolor sit amet consectetur a dipisicing</p>
-                                <p>lorem ipsum dolor sit amet consectetur a dipisicing</p>
-                                <p>lorem ipsum dolor sit amet consectetur a dipisicing</p>
-                                <p>lorem ipsum dolor sit amet consectetur a dipisicing</p>
+                                <h1>AQUÍ UN CAROUSEL CON PRODUCTOS AL AZAR</h1>
+                                <h1>AQUÍ CATEGORÍAS</h1>
+                                <h1>AQUÍ CONTACTO</h1>
                             </div>
                         </div>
                     </div>
