@@ -1,22 +1,22 @@
 <?php
 include_once("../../configuracion.php");
 include_once("../estructura/header.php");
+include_once("../estructura/menu.php");
+
 ?>
 <main>
-    <div class="paravideo">
+    <div class="paravideo parallax">
         <video autoplay muted loop>
             <source src="../images/nursery_-_567-converted.mp4" type="video/mp4">
         </video>
         <div class="logo-animado">
             <?php include_once("../images/logotipo_animacion.svg"); ?>
         </div>
-        <!-- <img src="../images/logotipo_animacion.svg" alt=""> -->
-        <!-- <h2>Video Background</h2> -->
     </div>
+
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <h1>Home de la vista pública</h1>
                 <div class="paracontent">
                     <div class="container">
                         <div class="row">

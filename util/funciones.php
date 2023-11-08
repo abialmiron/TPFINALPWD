@@ -41,5 +41,25 @@ spl_autoload_register(function($class_name) {
         }
     }
 }
-)
+);
+
+
+// consulta los items de un menu según el rol del usuario y los devuelve en un array
+function obtenerItemsMenu($rol){
+    $menu = new AbmMenu();
+    $menuRol = new AbmMenuRol();
+    $listaMenuRol = $menuRol->buscar(["idrol"=>$rol]);
+    $listaMenu = array();
+    // foreach ($listaMenuRol as $objMenuRol){
+    //     $listaMenu[] = $menu->buscar(["idmenu"=>$objMenuRol->getObjMenu()->getIdmenu()])[0]->getObjItem();
+    // }
+    // $listaMenu = $menu->buscar(["idrol"=>$rol]);
+    // $listaItems = array();
+    // foreach ($listaMenu as $objMenu){
+    //     $listaItems[] = $objMenu->getObjItem();
+    // }
+    return $listaMenuRol;
+}
+
+
 ?>
