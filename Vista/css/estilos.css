@@ -1,5 +1,4 @@
 .paracontent {
-	min-height: 1300px;
 	text-align: center;
 	background-color: azure;
 }
@@ -13,7 +12,6 @@
 	min-height: 100%;
 	position: fixed;
 	z-index: -100;
-	
 }
 
 .paravideo h2 {
@@ -64,87 +62,84 @@ body::-webkit-scrollbar {
 	position: fixed;
 	z-index: -100;
 }
-.hidden{
+.hidden {
 	visibility: hidden;
 }
 
 .swing-in-top-fwd {
-	-webkit-animation: swing-in-top-fwd 1s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
-	animation: swing-in-top-fwd 1s cubic-bezier(0.680, -0.550, 0.265, 1.550) both;
+	-webkit-animation: swing-in-top-fwd 1s cubic-bezier(0.68, -0.55, 0.265, 1.55)
+		both;
+	animation: swing-in-top-fwd 1s cubic-bezier(0.68, -0.55, 0.265, 1.55) both;
 }
 .swing-out-top-bck {
--webkit-animation: swing-out-top-bck 0.45s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
-animation: swing-out-top-bck 0.45s cubic-bezier(0.600, -0.280, 0.735, 0.045) both;
-}
-.container{
-	max-width: 100vw;
-	padding-left: 0;
-	padding-right: 0;
+	-webkit-animation: swing-out-top-bck 0.45s
+		cubic-bezier(0.6, -0.28, 0.735, 0.045) both;
+	animation: swing-out-top-bck 0.45s cubic-bezier(0.6, -0.28, 0.735, 0.045) both;
 }
 
- @-webkit-keyframes swing-in-top-fwd {
-  0% {
-    -webkit-transform: rotateX(-100deg);
-            transform: rotateX(-100deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 1;
-  }
+@-webkit-keyframes swing-in-top-fwd {
+	0% {
+		-webkit-transform: rotateX(-100deg);
+		transform: rotateX(-100deg);
+		-webkit-transform-origin: top;
+		transform-origin: top;
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: rotateX(0deg);
+		transform: rotateX(0deg);
+		-webkit-transform-origin: top;
+		transform-origin: top;
+		opacity: 1;
+	}
 }
 
 @keyframes swing-in-top-fwd {
-  0% {
-    -webkit-transform: rotateX(-100deg);
-            transform: rotateX(-100deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 0;
-  }
-  100% {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 1;
-  }
+	0% {
+		-webkit-transform: rotateX(-100deg);
+		transform: rotateX(-100deg);
+		-webkit-transform-origin: top;
+		transform-origin: top;
+		opacity: 0;
+	}
+	100% {
+		-webkit-transform: rotateX(0deg);
+		transform: rotateX(0deg);
+		-webkit-transform-origin: top;
+		transform-origin: top;
+		opacity: 1;
+	}
 }
 
- @-webkit-keyframes swing-out-top-bck {
-  0% {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: rotateX(-100deg);
-            transform: rotateX(-100deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 0;
-  }
+@-webkit-keyframes swing-out-top-bck {
+	0% {
+		-webkit-transform: rotateX(0deg);
+		transform: rotateX(0deg);
+		-webkit-transform-origin: top;
+		transform-origin: top;
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: rotateX(-100deg);
+		transform: rotateX(-100deg);
+		-webkit-transform-origin: top;
+		transform-origin: top;
+		opacity: 0;
+	}
 }
 @keyframes swing-out-top-bck {
-  0% {
-    -webkit-transform: rotateX(0deg);
-            transform: rotateX(0deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 1;
-  }
-  100% {
-    -webkit-transform: rotateX(-100deg);
-            transform: rotateX(-100deg);
-    -webkit-transform-origin: top;
-            transform-origin: top;
-    opacity: 0;
-  }
+	0% {
+		-webkit-transform: rotateX(0deg);
+		transform: rotateX(0deg);
+		-webkit-transform-origin: top;
+		transform-origin: top;
+		opacity: 1;
+	}
+	100% {
+		-webkit-transform: rotateX(-100deg);
+		transform: rotateX(-100deg);
+		-webkit-transform-origin: top;
+		transform-origin: top;
+		opacity: 0;
+	}
 }

@@ -6,7 +6,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item p-0">
-          <a class="nav-link p-0 me-3 ms-3" aria-current="page" href="<?php echo BASE_URL; ?>"><i class="bi bi-house-door-fill fs-4 p-0" ></i></a>
+          <a class="nav-link p-0 me-3 ms-3" aria-current="page" href="<?php echo BASE_URL; ?>"><img style="height: 35px;" class="me-2" src="<?php echo BASE_URL."Vista/images/logotipo-menu-50.png"; ?>"/></a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle"   role="button" data-bs-toggle="dropdown" aria-expanded="false">

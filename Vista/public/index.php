@@ -13,19 +13,14 @@ include_once("../estructura/menu.php");
             <?php include_once("../images/logotipo_animacion.svg"); ?>
         </div>
     </div>
-
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <div class="paracontent">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-12">
-                                <h1>AQUÍ UN CAROUSEL CON PRODUCTOS AL AZAR</h1>
-                                <h1>AQUÍ CATEGORÍAS</h1>
-                                <h1>AQUÍ CONTACTO</h1>
-                            </div>
-                        </div>
+    <div class="col-12">
+        <div class="paracontent">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <h1>AQUÍ UN CAROUSEL CON PRODUCTOS AL AZAR</h1>
+                        <h1>AQUÍ CATEGORÍAS</h1>
+                        <h1>AQUÍ CONTACTO</h1>
                     </div>
                 </div>
             </div>
