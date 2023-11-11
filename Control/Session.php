@@ -5,14 +5,14 @@ class Session{
     private $mensajeoperacion;
     
     public function __construct(){
-        if(session_start()){
+		$resp = session_start();
+        if($resp){
             $this->objUsuario=null;
             $this->listaRoles=[];
             $this->mensajeoperacion="";
-            return true;
         }
-        else
-         return false;
+         
+		return $resp;
     }
 
 
