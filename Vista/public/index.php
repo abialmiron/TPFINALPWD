@@ -1,8 +1,5 @@
 <?php
-include_once("../../configuracion.php");
-include_once("../estructura/header.php");
-include_once("../estructura/menu.php");
-
+include_once("../estructura/head.php");
 ?>
 <main>
     <div class="paravideo parallax">
@@ -21,6 +18,9 @@ include_once("../estructura/menu.php");
                         <h1>AQUÍ UN CAROUSEL CON PRODUCTOS AL AZAR</h1>
                         <h1>AQUÍ CATEGORÍAS</h1>
                         <h1>AQUÍ CONTACTO</h1>
+                        <?php
+                        //verEstructura(obtenerItemsMenu(2));
+                        ?>
                     </div>
                 </div>
             </div>

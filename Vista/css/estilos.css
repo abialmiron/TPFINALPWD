@@ -1,3 +1,9 @@
+
+.link {
+	cursor: pointer;
+	cursor: hand;
+}
+
 .paracontent {
 	text-align: center;
 	background-color: azure;
@@ -37,21 +43,30 @@
 	position: fixed;
 	z-index: -100;
 }
+
+html {
+	height: 100%;
+}
 body {
+	display: flex;
+	flex-direction: column;
+	min-height: 100%;
 	margin: 0;
 	padding: 0;
 	font-family: sans-serif;
-	/* overflow: hidden; */
 	scrollbar-width: none;
 }
 main {
 	position: relative;
 	width: 100%;
-	min-height: 100vh;
+	/* min-height: 100vh; */
 	overflow: auto;
 }
 body::-webkit-scrollbar {
 	width: 0;
+}
+footer {
+	margin-top: auto;
 }
 
 .logo-animado {
@@ -143,3 +158,23 @@ body::-webkit-scrollbar {
 		opacity: 0;
 	}
 }
+/* submenu dropdown */
+
+.dropdown-menu li {
+position: relative;
+}
+.dropdown-menu .dropdown-submenu {
+display: none;
+position: absolute;
+left: 100%;
+top: -7px;
+}
+.dropdown-menu .dropdown-submenu-left {
+right: 100%;
+left: auto;
+}
+.dropdown-menu > li:hover > .dropdown-submenu {
+display: block;
+}
+
+/* Path: TPFINALPWD/Vista/css/estilos.css */

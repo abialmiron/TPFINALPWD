@@ -1,3 +1,8 @@
+<?php
+include "../../configuracion.php";
+$objSession = new Session();
+$sesionActiva = $objSession->activa();
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>

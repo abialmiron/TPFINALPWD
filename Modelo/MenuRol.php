@@ -20,7 +20,7 @@ class MenuRol{
     
     // METODOS DE ACCESO GET
     
-    public function getObjmenu(){
+    public function getObjMenu(){
         return $this->objmenu;
     }
     
@@ -50,7 +50,7 @@ class MenuRol{
     public function cargar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="SELECT * FROM menu WHERE idmenu= ". $this->getObjmenu()->getIdmenu()." AND idrol= ". $this->getObjrol()->getIdrol();
+        $sql="SELECT * FROM menu WHERE idmenu= ". $this->getObjMenu()->getIdmenu()." AND idrol= ". $this->getObjrol()->getIdrol();
         //echo $sql;
         
         if ($base->Iniciar()) {
@@ -89,7 +89,7 @@ class MenuRol{
         $resp = false;
         $base=new BaseDatos();
         
-        $sql="INSERT INTO menurol(idmenu, idrol)VALUES(".$this->getObjmenu()->getIdmenu().",".$this->getObjrol()->getIdrol().");";
+        $sql="INSERT INTO menurol(idmenu, idrol)VALUES(".$this->getObjMenu()->getIdmenu().",".$this->getObjrol()->getIdrol().");";
         //echo $sql;
         if ($base->Iniciar()) {
             
@@ -110,7 +110,7 @@ class MenuRol{
         $base=new BaseDatos();
         $sql=" UPDATE menurol SET ";
         $sql.=" idrol = ".$param['idrolNuevo'];
-        $sql.=" WHERE idmenu =".$this->getObjmenu()->getIdmenu()." AND idrol =".$this->getObjrol()->getIdrol();
+        $sql.=" WHERE idmenu =".$this->getObjMenu()->getIdmenu()." AND idrol =".$this->getObjrol()->getIdrol();
         echo $sql;
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
@@ -128,7 +128,7 @@ class MenuRol{
     public function eliminar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="DELETE FROM menurol WHERE idmenu='". $this->getObjmenu()->getIdmenu()."' AND idrol='".$this->getObjrol()->getIdrol()."'";
+        $sql="DELETE FROM menurol WHERE idmenu='". $this->getObjMenu()->getIdmenu()."' AND idrol='".$this->getObjrol()->getIdrol()."'";
         //echo $sql;
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
