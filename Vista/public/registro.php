@@ -1,15 +1,61 @@
 <?php
-include_once("../../configuracion.php");
+include_once("../estructura/head.php");
 ?>
-<main>
-    <div class="container">
-        <div class="row">
-            <div class="col-12">
-                <h1>REGISTRO</h1>
-            </div>
+<main class='row justify-content-center align-items-center m-auto'>
+<div class="container-fluid">
+    <div class="card shadow col-sm-8 col-md-6 col-lg-5 col-xl-4 mx-auto">
+        <div class="card-header">
+            <h3>Registrarse</h3>
         </div>
+        <div class="card-body">
+            <form method="post" action="#" class="d-flex flex-column needs-validation" novalidate>
+                <div class="mb-3">
+                    <label>Nombre </label>
+                    <input type="text" pattern="[a-zA-Z]+\s?[0-9]*" name="usNombre" minlength="3" id="usNombre" class="form-control text mt-2" required>
+                    <div class="invalid-feedback">
+                        Ingrese un nombre válido. 
+                        -No se aceptan números.
+                        -Su longitud debe ser mayor a 3.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label>Email </label>
+                    <input type="text" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*\.([a-z]{3})(\.[a-z]{2})*$" name="usMail" minlength="3" class="form-control text mt-2" required>
+                    <div class="invalid-feedback">
+                        Ingrese un email válido.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label>Contraseña </label>
+                    <input type="password" class="form-control validate" name="usPass"  id="usPass" required>
+                    <div class="invalid-feedback">
+                        Ingrese una contraseña.
+                    </div>
+                    <div class="invalid-password" style='display:none;'>
+                        Las contraseñas no coinciden
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label>Repita la contraseña. </label>
+                    <input type="password" id="input_contraseñaRep" class="form-control validate" required>
+                    <div class="invalid-feedback">
+                        Ingrese una contraseña.
+                    </div>
+                    <div class="invalid-password" style='display:none;'>
+                        Las contraseñas no coinciden
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <input class="btn btn-primary" type="submit" name="enviar" id="enviar" value="Registrarse">
+                </div>
+                <p class="m-2 align-self-end"><a href="listaUsuarios.php">Volver</a></p>
+            </form>
+            </div> 
+            
     </div>
+</div>
 </main>
+
 
 <?php
 include_once("../estructura/footer.php");
