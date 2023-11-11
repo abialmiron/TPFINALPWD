@@ -32,7 +32,7 @@ class AbmCompra{
             array_key_exists('cofecha', $param) &&
             array_key_exists('idusuario', $param)
         ) {
-            $objusuario = new usuario();
+            $objusuario = new Usuario();
             $objusuario->setIdUsuario($param['idusuario']);
             $objusuario->cargar();
 
