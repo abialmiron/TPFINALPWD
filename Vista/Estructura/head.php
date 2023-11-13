@@ -2,9 +2,9 @@
 include "../../configuracion.php";
 $objSession = new Session();
 $sesionActiva = $objSession->activa();
-verEstructura($_SESSION);
-echo $_SESSION["rol-activo"]->getRolDescripcion();
-echo $sesionActiva;
+// verEstructura($_SESSION);
+// echo $_SESSION["rol-activo"]->getRolDescripcion();
+// echo $sesionActiva;
 ?>
 <!DOCTYPE html>
 <html lang="es">
