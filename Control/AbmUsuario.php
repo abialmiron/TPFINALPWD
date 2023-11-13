@@ -39,6 +39,24 @@ class AbmUsuario {
         return $obj;
     }
     
+     /**
+     * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto,
+     * aunque en este caso no espera un ID. Puede ser utilizado para inserción.
+     * @param array $param
+     * @return object
+     */
+    private function cargarObjetoSinID($param){
+        $obj = null;
+        if (
+            array_key_exists('usnombre', $param) &&
+            array_key_exists('uspass', $param) && 
+            array_key_exists('usmail', $param)
+        ) {
+            $obj = new Usuario();
+            $obj->setear(null, $param['usnombre'], $param['uspass'],$param['usmail'],null);
+        }
+        return $obj;
+    }
     
     /**
      * Corrobora que dentro del arreglo asociativo estan seteados los campos claves
@@ -63,7 +81,7 @@ class AbmUsuario {
         
         $resp = false;
         $elObjtUsuario = new Usuario();
-        $elObjtUsuario = $this->cargarObjeto($param);
+        $elObjtUsuario = $this->cargarObjetoSinID($param);
         if ($elObjtUsuario!=null and $elObjtUsuario->insertar()){
             $resp = true;
         }

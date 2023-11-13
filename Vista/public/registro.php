@@ -1,6 +1,7 @@
 <?php
 include_once("../estructura/head.php");
 ?>
+<script src="../js/md5.js"></script>
 <main class='row justify-content-center align-items-center m-auto'>
 <div class="container-fluid">
     <div class="card shadow col-sm-8 col-md-6 col-lg-5 col-xl-4 mx-auto">
@@ -8,10 +9,10 @@ include_once("../estructura/head.php");
             <h3>Registrarse</h3>
         </div>
         <div class="card-body">
-            <form method="post" action="#" class="d-flex flex-column needs-validation" novalidate>
+            <form method="post" action="../Accion/accionRegistro.php" class="d-flex flex-column needs-validation" novalidate>
                 <div class="mb-3">
                     <label>Nombre </label>
-                    <input type="text" pattern="[a-zA-Z]+\s?[0-9]*" name="usNombre" minlength="3" id="usNombre" class="form-control text mt-2" required>
+                    <input type="text" pattern="[a-zA-Z]+\s?[0-9]*" name="usnombre" minlength="3" id="usNombre" class="form-control text mt-2" required>
                     <div class="invalid-feedback">
                         Ingrese un nombre válido. 
                         -No se aceptan números.
@@ -20,14 +21,15 @@ include_once("../estructura/head.php");
                 </div>
                 <div class="mb-3">
                     <label>Email </label>
-                    <input type="text" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*\.([a-z]{3})(\.[a-z]{2})*$" name="usMail" minlength="3" class="form-control text mt-2" required>
+                    <input type="text" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*\.([a-z]{3})(\.[a-z]{2})*$" name="usmail" minlength="3" class="form-control text mt-2" required>
                     <div class="invalid-feedback">
                         Ingrese un email válido.
                     </div>
                 </div>
                 <div class="mb-3">
                     <label>Contraseña </label>
-                    <input type="password" class="form-control validate" name="usPass"  id="usPass" required>
+                    <input type="password" class="form-control validate" name="usPass1"  id="usPass" required>
+                    <input type="password" class="form-control d-none" name="uspass"  id="contraseña">
                     <div class="invalid-feedback">
                         Ingrese una contraseña.
                     </div>
@@ -37,7 +39,7 @@ include_once("../estructura/head.php");
                 </div>
                 <div class="mb-3">
                     <label>Repita la contraseña. </label>
-                    <input type="password" id="input_contraseñaRep" class="form-control validate" required>
+                    <input type="password" id="usPassRep" class="form-control validate" required>
                     <div class="invalid-feedback">
                         Ingrese una contraseña.
                     </div>
@@ -56,7 +58,7 @@ include_once("../estructura/head.php");
 </div>
 </main>
 
-
+<script src="../js/registrarse.js"></script>
 <?php
 include_once("../estructura/footer.php");
 ?>
