@@ -3,7 +3,7 @@ include_once("../estructura/head.php");
 ?>
 <main class="row justify-content-center align-items-center m-auto">
 
-<div class="container">
+<div class="container py-5">
     <div class="row mb-4 mb-lg-5">
         <div class="col-md-8 col-xl-6 text-center mx-auto">
             <h2 class="fw-bold">HAY EQUIPO</h2>
