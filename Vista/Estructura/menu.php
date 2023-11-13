@@ -81,7 +81,7 @@ if ($sesionActiva){
             </li>
             
             <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" onclick="cerrarSesion();">Sign out</a></li>
+            <li><a class="dropdown-item link" onclick="cerrarSesion();">Sign out</a></li>
           </ul>
         </div>
       <?php
