@@ -8,9 +8,10 @@ $(document).ready(function () {
           var passhash = hex_md5(password).toString();
           console.log(passhash)
           document.getElementById("contraseñaEnviada").value = passhash;
+          console.log($(this).serialize())  
           $.ajax({
               type: "POST",
-              url: 'Accion/accionIniciarSesion.php',
+              url: '../Accion/accionIniciarSesion.php',
               data: $(this).serialize(),
               success: function (response) {
                   console.log(response)
@@ -36,9 +37,7 @@ $(document).ready(function () {
 
 function registerSuccess() {
   alert('Se inicio sesion correctamente!');
-  setTimeout(function () {
       redireccionarIndex();
-  }, 1500);
 }
 
 
@@ -51,11 +50,11 @@ function registerFailure() {
       icon: 'error',
       title: 'La contraseña y/o el usuario no coinciden!',
       showConfirmButton: false,
-      timer: 1500
+      timer: 500
   })
   setTimeout(function () {
       recargarPagina();
-  }, 1500);
+  }, 500);
 }
 
 function recargarPagina() {

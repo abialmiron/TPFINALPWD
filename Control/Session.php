@@ -7,7 +7,7 @@ class Session{
     public function __construct(){
 		$resp = session_start();
         if($resp){
-            $this->objUsuario=null;
+            $this->setObjUsuario(new AbmUsuario());
             $this->listaRoles=[];
             $this->mensajeoperacion="";
         }
@@ -74,19 +74,20 @@ class Session{
 	}
 	
 	public function getRol(){
-		if($this->validar())
-		{ $abmUsuarioRol=new AbmUsuarioRol();
-		//  $usuario=$this->getUsuario();
-		//$idUsuario=$usuario->getIdUsuario();
-		$param['idusuario']=$_SESSION['idusuario'];
-		//$param=['idusuario'=>$idUsuario];
-		$listaRolesUsu=$abmUsuarioRol->buscar($param);
-		if($listaRolesUsu>1){
-			$rol=$listaRolesUsu;}
-		else{$rol=$listaRolesUsu[0];}
+		if($this->getObjUsuario() != null){
+			$objUsuarioRol = new AbmUsuarioRol();
+			$param["idUsuario"] = $this->getObjUsuario()->getIdUsuario();
+			$arrayRolesUsuario = $objUsuarioRol->buscar($param);
+			$arrayRol = [];
+					foreach($arrayRolesUsuario as $rol){
+							array_push($arrayRol, $rol->getRol());
+					}
+					$idRoles=[];
+					foreach($arrayRol as $objRol){
+							array_push($idRoles,$objRol->getIdRol());
+					}
 	}
-		setListaRoles($rol);
-		return $rol; 
+	return $idRoles;
 	}
 	
 	public function cerrar(){

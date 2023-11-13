@@ -143,12 +143,12 @@ public function modificacion($param) {
     public function buscar($param){
         $where = " true ";
         if ($param<>NULL){
-            if  (isset($param['usnombre']) && isset($param['uspass']))
-                $where.=" and usnombre='".$param['usnombre']."'";
-                $where.=" and uspass='".$param['uspass']."'";
+            if  (isset($param['nombreUsuario']) && isset($param['password']))
+                $where.=" and usnombre='".$param['nombreUsuario']."'";
+                $where.=" and uspass='".$param['password']."'";
         }
-        $elObjtUsuario = new Usuario();
-        $arreglo = $elObjtUsuario->listar($where);
+        $objUsuario = new Usuario();
+        $arreglo = $objUsuario->listar($where);
         return $arreglo;
     }
 
