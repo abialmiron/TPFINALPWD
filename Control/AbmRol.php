@@ -108,10 +108,6 @@ class AbmRol{
         }
         $arreglo = Rol::listar($where);
         return $arreglo;
-        
-        
-        
-        
     }
 
     public function obtenerObj($arrayId){

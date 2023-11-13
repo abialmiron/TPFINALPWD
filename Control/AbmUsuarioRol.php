@@ -33,6 +33,7 @@ class AbmUsuarioRol {
         
         return $objUsuarioRol;
     }
+
     /**
      * Espera como parametro un arreglo asociativo donde las claves coinciden con los nombres de las variables instancias del objeto que son claves
      * @param array $param
@@ -135,8 +136,6 @@ class AbmUsuarioRol {
      */
     
     public function buscar($param){
-        // print_R ($param);
-        
         $where = " true ";
         if ($param<>NULL){
             if  (isset($param['idusuario']))
@@ -147,7 +146,23 @@ class AbmUsuarioRol {
             
             $arreglo = UsuarioRol::listar($where, "");
             return $arreglo;
-        
     }
+
+    /**
+     * devuelve el objeto Rol
+     * @return object
+     */
+    public function getObjRol(){
+        return $this->objRol;
+    }
+
+    /**
+     * devuelve el objeto Usuario
+     * @return object
+     */
+    public function getObjUsuario(){
+        return $this->objUsuario;
+    }
+    
 }
 ?>

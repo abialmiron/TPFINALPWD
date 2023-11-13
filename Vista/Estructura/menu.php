@@ -61,19 +61,22 @@ if ($sesionActiva){
         <div class=" dropdown">
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
-            <span class="p-1">Omar | <?php echo $_SESSION['rol-activo']->getRolDescripcion() ?></span>
+            <span class="p-1"><?php echo $_SESSION['nombreUsuario']; ?> | <?php echo $_SESSION['rol-activo']->getRolDescripcion() ?></span>
           </a> 
           <ul class="dropdown-menu dropdown-menu-end text-small shadow" style="">
             <li><a class="dropdown-item" href="#">Perfil</a></li>
            
               <li><p class="dropdown-item link">Elegir Rol</p>
             <ul class="dropdown-menu dropdown-submenu dropdown-submenu-left">
+              <?php
+              foreach ($_SESSION['roles'] as $rol){
+                ?>
               <li>
-                <a class="dropdown-item" href="<?php echo BASE_URL ?>Vista/public/index.php" onclick="console.log('Hola mundo');">Administrador</a>
+                <a class="dropdown-item" href="<?php echo BASE_URL ?>Vista/public/index.php" onclick="console.log('Hola mundo');"><?php echo $rol;?></a>
               </li>
-              <li>
-                <a class="dropdown-item" href="#">Submenu item 2</a>
-              </li>
+              <?php
+              }
+              ?>
             </ul>
             </li>
             
