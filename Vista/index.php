@@ -1,7 +1,11 @@
 <?php
+
+header('Location: public/index.php');
+
+/*
 include_once("../configuracion.php");
 include_once(STRUCTURE_PATH . "head.php");
-?>
+ ?>
 
 <main class="p-5 text-center bg-light">
     <h2>Lista de Usuarios:</h2>
@@ -53,4 +57,4 @@ include_once(STRUCTURE_PATH . "head.php");
     ?>
 </main>
 
-<?php include(STRUCTURE_PATH . "footer.php"); ?>
+<?php include(STRUCTURE_PATH . "footer.php"); */?>
