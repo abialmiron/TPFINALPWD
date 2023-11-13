@@ -46,16 +46,9 @@ function redireccionarIndex() {
 }
 
 function registerFailure() {
-  Swal.fire({
-      icon: 'error',
-      title: 'La contraseña y/o el usuario no coinciden!',
-      showConfirmButton: false,
-      timer: 500
-  })
-  setTimeout(function () {
-      recargarPagina();
-  }, 500);
+  alert ('La contraseña y/o el usuario no coinciden!');
 }
+  
 
 function recargarPagina() {
   location.reload();
