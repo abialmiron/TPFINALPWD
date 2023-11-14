@@ -1,15 +1,19 @@
-$(document).ready(function () {
-    $('form').submit(function (e) {
+ $('form').submit(function (e) {
         e.preventDefault();
         const forms = document.querySelectorAll('.needs-validation');
         if (forms[0].checkValidity()) {
-            var password = document.getElementById("usPass").value;
-            var passhash = hex_md5(password).toString();
-            document.getElementById("contraseña").value = passhash;
+            var password = document.getElementById("uspass").value;
+            var passhash = hex_md5(password);
+            console.log(passhash);
+            arreglo = {
+                usmail: document.getElementById("usmail").value,
+                usnombre: document.getElementById("usnombre").value,
+                uspass: passhash,
+            }
             $.ajax({
                 type: "POST",
                 url: '../Accion/accionRegistro.php',
-                data: $(this).serialize(),
+                data: arreglo,
                 success: function (response) {
                     console.log(response);
                     var jsonData = JSON.parse(response);
@@ -30,7 +34,6 @@ $(document).ready(function () {
             forms[0].classList.add('was-validated');
         }
     });
-});
 
 
 function registerSuccess() {

@@ -9,10 +9,10 @@ include_once("../estructura/head.php");
             <h3>Registrarse</h3>
         </div>
         <div class="card-body">
-            <form method="post" action="../Accion/accionRegistro.php" class="d-flex flex-column needs-validation" novalidate>
+            <form method="post" action="" class="d-flex flex-column needs-validation" novalidate>
                 <div class="mb-3">
                     <label>Nombre </label>
-                    <input type="text" pattern="[a-zA-Z]+\s?[0-9]*" name="usnombre" minlength="3" id="usNombre" class="form-control text mt-2" required>
+                    <input type="text" name="usnombre" id="usnombre" class="form-control text mt-2" required>
                     <div class="invalid-feedback">
                         Ingrese un nombre válido. 
                         -No se aceptan números.
@@ -21,15 +21,14 @@ include_once("../estructura/head.php");
                 </div>
                 <div class="mb-3">
                     <label>Email </label>
-                    <input type="text" name="usmail" minlength="3" class="form-control text mt-2" required>
+                    <input type="text" name="usmail" id="usmail" class="form-control text mt-2" required>
                     <div class="invalid-feedback">
                         Ingrese un email válido.
                     </div>
                 </div>
                 <div class="mb-3">
                     <label>Contraseña </label>
-                    <input type="password" class="form-control validate" name="usPass1"  id="usPass" required>
-                    <input type="password" class="form-control d-none" name="uspass"  id="contraseña">
+                    <input type="password" class="form-control validate" name="uspass"  id="uspass" required>
                     <div class="invalid-feedback">
                         Ingrese una contraseña.
                     </div>
