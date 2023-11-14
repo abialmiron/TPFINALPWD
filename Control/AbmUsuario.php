@@ -82,7 +82,7 @@ class AbmUsuario {
         $resp = false;
         $elObjtUsuario = new Usuario();
         $elObjtUsuario = $this->cargarObjetoSinID($param);
-        if ($elObjtUsuario!=null and $elObjtUsuario->insertar()){
+        if ($elObjtUsuario!=null && $elObjtUsuario->insertar()){
             $resp = true;
         }
         return $resp;

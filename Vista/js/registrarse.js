@@ -11,6 +11,7 @@ $(document).ready(function () {
                 url: '../Accion/accionRegistro.php',
                 data: $(this).serialize(),
                 success: function (response) {
+                    console.log(response);
                     var jsonData = JSON.parse(response);
 
                     // user is logged in successfully in the back-end
@@ -33,7 +34,7 @@ $(document).ready(function () {
 
 
 function registerSuccess() {
-    Swal.fire({
+    /**Swal.fire({
         icon: 'success',
         title: 'La cuenta se creo correctamente!',
         showConfirmButton: false,
@@ -41,7 +42,7 @@ function registerSuccess() {
     })
     setTimeout(function () {
         redireccionarIndexUser();
-    }, 1500);
+    }, 1500);*/
 }
 
 function redireccionarIndexUser() {
@@ -49,7 +50,7 @@ function redireccionarIndexUser() {
 }
 
 function registerFailure() {
-    Swal.fire({
+   /**  Swal.fire({
         icon: 'error',
         title: 'La cuenta no se pudo crear en la base de datos!',
         showConfirmButton: false,
@@ -57,11 +58,11 @@ function registerFailure() {
     })
     setTimeout(function () {
         recargarPagina();
-    }, 1500);
+    }, 1500);*/
 }
 
 function captchaFailure() {
-    Swal.fire({
+    /**Swal.fire({
         icon: 'error',
         title: 'El captcha no se realizo correctamente!',
         showConfirmButton: false,
@@ -69,7 +70,7 @@ function captchaFailure() {
     })
     setTimeout(function () {
         recargarPagina();
-    }, 1500);
+    }, 1500);*/
 }
 
 function recargarPagina() {

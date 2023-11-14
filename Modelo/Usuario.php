@@ -109,12 +109,11 @@ class Usuario {
     public function insertar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="INSERT INTO usuario (usnombre, uspass, usmail, usdeshabilitado) VALUES ('".$this->getUsNombre()."','".md5($this->getUsPass())."','".$this->getUsMail()."','".$this -> getUsDeshabilitado()."');";
-        echo $sql;
+        $sql="INSERT INTO usuario(usnombre, uspass, usmail, usdeshabilitado) VALUES ('".$this->getUsNombre()."','".md5($this->getUsPass())."','".$this->getUsMail()."','".$this -> getUsDeshabilitado()."');";
         if ($base->Iniciar()) {
-            
-            if ($elid = $base->Ejecutar($sql)) {
-                $this->setIdUsuario($elid);
+            $id = $base->EjecutarInsert($sql);
+            if ($id != null) {
+                $this->setIdUsuario($id);
                 $resp = true;
             } else {
                 $this->setmensajeoperacion("usuario->insertar: ".$base->getError());

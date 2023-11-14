@@ -21,7 +21,7 @@ include_once("../estructura/head.php");
                 </div>
                 <div class="mb-3">
                     <label>Email </label>
-                    <input type="text" pattern="^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*\.([a-z]{3})(\.[a-z]{2})*$" name="usmail" minlength="3" class="form-control text mt-2" required>
+                    <input type="text" name="usmail" minlength="3" class="form-control text mt-2" required>
                     <div class="invalid-feedback">
                         Ingrese un email válido.
                     </div>
@@ -58,7 +58,7 @@ include_once("../estructura/head.php");
 </div>
 </main>
 
-<script src="../js/registrarse.js"></script>
+
 <?php
 include_once("../estructura/footer.php");
 ?>
