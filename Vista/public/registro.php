@@ -1,7 +1,6 @@
 <?php
 include_once("../estructura/head.php");
 ?>
-<script src="../js/md5.js"></script>
 <main class='row justify-content-center align-items-center m-auto'>
 <div class="container-fluid">
     <div class="card shadow col-sm-8 col-md-6 col-lg-5 col-xl-4 mx-auto">

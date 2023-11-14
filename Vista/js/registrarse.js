@@ -1,3 +1,4 @@
+$(document).ready(function () {
  $('form').submit(function (e) {
         e.preventDefault();
         const forms = document.querySelectorAll('.needs-validation');
@@ -61,3 +62,4 @@ function registerFailure() {
 function recargarPagina() {
     location.reload();
 }
+});
