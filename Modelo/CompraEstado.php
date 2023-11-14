@@ -106,8 +106,8 @@ class CompraEstado{
     public function insertar(){
 		$base=new BaseDatos();
 		$resp= false;
-		$consultaInsertar="INSERT INTO compraestado(idcompra,idcompraestadotipo,cefechaini,cefechafin)
-				VALUES ('".$this->getObjCompra()->getIdCompra()."','".$this->getObjCompraEstadoTipo()->getIdCompraEstadoTipo()."','".$this->getCeFechaIni()."','".$this->getCeFechaFin()."')";
+		$consultaInsertar="INSERT INTO compraestado(idcompra,idcompraestadotipo)
+				VALUES ('".$this->getObjCompra()->getIdCompra()."','".$this->getObjCompraEstadoTipo()->getIdCompraEstadoTipo()."')";
 		if($base->Iniciar()){
             $id = $base->EjecutarInsert($consultaInsertar);
 			if($id != null){
@@ -128,7 +128,6 @@ class CompraEstado{
         $sql = "UPDATE compraestado SET
         idcompra = '" . $this->getObjCompra()->getIdCompra(). "',
         idcompraestadotipo = '" . $this->getObjCompraEstadoTipo()->getIdCompraEstadoTipo(). "',
-        cefechaini = '" . $this->getCeFechaIni(). "',
         cefechafin = '" . $this->getCeFechaFin(). "',
         WHERE idcompraestado = '" . $this->getIdCompraEstado() . "'";
     

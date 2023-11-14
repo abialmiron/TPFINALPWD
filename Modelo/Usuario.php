@@ -109,7 +109,7 @@ class Usuario {
     public function insertar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="INSERT INTO usuario(usnombre, uspass, usmail, usdeshabilitado) VALUES ('".$this->getUsNombre()."','".$this->getUsPass()."','".$this->getUsMail()."','"."');";
+        $sql="INSERT INTO usuario(usnombre, uspass, usmail, usdeshabilitado) VALUES ('".$this->getUsNombre()."','".$this->getUsPass()."','".$this->getUsMail()."');";
         if ($base->Iniciar()) {
             $id = $base->Ejecutar($sql);
             if ($id != null) {
