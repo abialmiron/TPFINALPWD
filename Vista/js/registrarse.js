@@ -1,11 +1,11 @@
 $(document).ready(function () {
  $('form').submit(function (e) {
         e.preventDefault();
+        e.stopImmediatePropagation();
         const forms = document.querySelectorAll('.needs-validation');
         if (forms[0].checkValidity()) {
             var password = document.getElementById("uspass").value;
             var passhash = hex_md5(password);
-            console.log(passhash);
             arreglo = {
                 usmail: document.getElementById("usmail").value,
                 usnombre: document.getElementById("usnombre").value,
