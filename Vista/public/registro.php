@@ -61,3 +61,5 @@ include_once("../estructura/head.php");
 <?php
 include_once("../estructura/footer.php");
 ?>
+<script src="<?php echo BASE_URL ?>Vista/js/md5.js"></script>
+<script src="<?php echo BASE_URL ?>Vista/js/registrarse.js"></script>
