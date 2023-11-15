@@ -1,5 +1,5 @@
 <?php
-include_once("../estructura/head.php");
+include_once("../../configuracion.php");
 ?>
 <main>
     <div class="paravideo parallax">

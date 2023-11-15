@@ -1,5 +1,5 @@
 <?php
-include_once("../estructura/head.php");
+include_once("../../configuracion.php");
 ?>
 <main class='row justify-content-center align-items-center m-auto'>
 <div class="container-fluid">

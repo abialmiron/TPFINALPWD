@@ -1,5 +1,5 @@
 <?php
-include "../../configuracion.php";
+//include "../../configuracion.php";
 $objSession = new Session();
 $sesionActiva = $objSession->activa();
 // verEstructura($_SESSION);

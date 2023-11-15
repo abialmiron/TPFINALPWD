@@ -14,3 +14,4 @@ define('STRUCTURE_PATH', ROOT_PATH.'Vista/Estructura/');
 $_SESSION['ROOT'] = ROOT_PATH;
 $ROOT = ROOT_PATH; // Agrega esta línea para definir la variable $ROOT
 include_once(ROOT_PATH.'util/funciones.php');
+include_once(ROOT_PATH.'Vista/Estructura/head.php');

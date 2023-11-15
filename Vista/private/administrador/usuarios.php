@@ -1,5 +1,5 @@
 <?php
-include_once("../../estructura/head.php");
+include_once("../../../configuracion.php");
 $objUsuarios = new AbmUsuario();
 $listaUsuario = $objUsuarios->buscar(null);
 $objRol = new AbmRol();
@@ -42,5 +42,5 @@ if (count($listaUsuario) > 0) {
         </div>
 <?php
     }
-include_once("../estructura/footer.php");
+include_once(ROOT_PATH."Vista/estructura/footer.php");
 ?>
