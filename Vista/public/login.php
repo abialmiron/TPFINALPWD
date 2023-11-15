@@ -6,7 +6,7 @@ if ($_SESSION['sesion-activa']){
 }
 include_once("../Estructura/head.php");
 ?>
-<main class="row justify-content-center align-items-center m-auto">
+<main class="row justify-content-center align-items-center m-auto p-4">
 	<div >
 			<div class="card shadow col-sm-8 col-md-6 col-lg-5 col-xl-4 mx-auto">
 					<div class="card-header">
