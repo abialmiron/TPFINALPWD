@@ -200,7 +200,7 @@ class Producto {
                 while ($row = $base->Registro()){
                     
                     $obj = new Producto();
-                    $obj->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'], $row['procantstock'], $row['proimagen'], $row['proimporte']);
+                    $obj->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'], $row['procantstock'],null,null);//, $row['proimagen'], $row['proimporte']);
                     array_push($arreglo, $obj);
                 }
             }
