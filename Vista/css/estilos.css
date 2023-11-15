@@ -67,7 +67,9 @@ body::-webkit-scrollbar {
 }
 footer {
 	margin-top: auto;
-	/* background-color: #f1f1f1; */
+	background-color: #f1f1f1;
+}
+footer div {
 	background-color: rgba(0, 0, 0, 0.2);
 }
 .logo-animado {

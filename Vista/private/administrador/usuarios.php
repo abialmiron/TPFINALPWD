@@ -1,5 +1,6 @@
 <?php
 include_once("../../../configuracion.php");
+include_once("../../Estructura/head.php");
 $objUsuarios = new AbmUsuario();
 $listaUsuario = $objUsuarios->buscar(null);
 $objRol = new AbmRol();

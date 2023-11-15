@@ -1,5 +1,6 @@
 <?php
 include_once("../../configuracion.php");
+include_once("../Estructura/head.php");
 ?>
 <main class="row justify-content-center align-items-center m-auto">
 

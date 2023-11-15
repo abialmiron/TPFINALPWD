@@ -1,5 +1,6 @@
 <?php
 include_once("../../configuracion.php");
+include_once("../Estructura/head.php");
 ?>
 <main class="row justify-content-center align-items-center m-auto">
 <div class="container py-5">
@@ -55,5 +56,5 @@ include_once("../../configuracion.php");
 </main>
 
 <?php
-include_once("../estructura/footer.php");
+include_once("../Estructura/footer.php");
 ?>
