@@ -1,10 +1,6 @@
 <?php
-//include "../../configuracion.php";
-$objSession = new Session();
-$sesionActiva = $objSession->activa();
-// verEstructura($_SESSION);
-// echo $_SESSION["rol-activo"]->getRolDescripcion();
-// echo $sesionActiva;
+// sesionActiva();
+$sesionActiva = $_SESSION['sesion-activa'];
 ?>
 <!DOCTYPE html>
 <html lang="es">
@@ -14,7 +10,8 @@ $sesionActiva = $objSession->activa();
 <meta name="theme-color" content="#000000">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Toys-Sonrisas de bebé</title>
-  <?php include_once ("links.php");
+  <?php 
+    include_once ("links.php");
   ?>
     <body class="">
       <header class="">

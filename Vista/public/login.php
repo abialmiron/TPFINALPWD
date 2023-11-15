@@ -1,5 +1,9 @@
 <?php
 include_once("../../configuracion.php");
+if ($_SESSION['sesion-activa']){
+    header("location:".BASE_URL."Vista/public/?error=1");
+    exit();
+}
 include_once("../Estructura/head.php");
 ?>
 <main class="row justify-content-center align-items-center m-auto">

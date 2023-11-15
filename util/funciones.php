@@ -55,9 +55,10 @@ function construirMenu($rolActivo){
     return $listaMenu;
 }
 
-
-
-
-
+// Funciones de sesión
+function sesionActiva(){
+    $_SESSION['objeto'] = new Session();
+    $_SESSION['sesion-activa'] = $_SESSION['objeto']->activa();   
+}
 
 ?>

@@ -1,3 +1,4 @@
+   console.log(base_url+"Vista/Accion/accionIniciarSesion.php");
 $(document).ready(function () {
   $('form').submit(function (e) {
       e.preventDefault();
@@ -11,7 +12,7 @@ $(document).ready(function () {
           console.log($(this).serialize())  
           $.ajax({
               type: "POST",
-              url: '../Accion/accionIniciarSesion.php',
+              url: base_url+'Vista/Accion/accionIniciarSesion.php',
               data: $(this).serialize(),
               success: function (response) {
                   console.log(response)
@@ -42,7 +43,7 @@ function registerSuccess() {
 
 
 function redireccionarIndex() {
-  location.href = "../public/index.php";
+  location.href = base_url+"Vista/public/index.php";
 }
 
 function registerFailure() {
