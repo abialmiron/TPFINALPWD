@@ -26,7 +26,7 @@ if (count($listaUsuario) > 0) {
                     echo "<td>".$usuario->getUsMail()."</td>";
                     echo "<td>".$usuario->getUsDeshabilitado()."</td>";
                     echo "<td><a href='actualizar_usuario.php?id=".$usuario->getIdUsuario()."' class='btn btn-success btn-sm'><i class='bi bi-pencil-square'></i></a></td>";
-                    echo "<td><a href='eliminar_usuario.php?id=".$usuario->getIdUsuario()."' class='btn btn-danger btn-sm'><i class='bi bi-pencil-square'></i></a></td>";
+                    echo "<td><a href='eliminar_usuario.php?id=".$usuario->getIdUsuario()."' class='btn btn-danger btn-sm'><i class='bi bi-trash3'></i></a></td>";
                     echo "</tr>";
                 }
                 ?>
