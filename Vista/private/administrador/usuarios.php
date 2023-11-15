@@ -14,8 +14,8 @@ if (count($listaUsuario) > 0) {
                     <th scope="col">Nombre</th>
                     <th scope="col">Correo</th>
                     <th scope="col">Deshabilitado</th>
-                    <th scope="col">Actualizar</th>
-                    <th scope="col">Eliminar</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
                 </tr>
             </thead>
             <tbody>
@@ -25,8 +25,8 @@ if (count($listaUsuario) > 0) {
                     echo "<td>".$usuario->getUsNombre()."</td>";
                     echo "<td>".$usuario->getUsMail()."</td>";
                     echo "<td>".$usuario->getUsDeshabilitado()."</td>";
-                    echo "<td><a href='actualizar_usuario.php?id=".$usuario->getIdUsuario()."' class='btn btn-warning btn-sm'>Actualizar</a></td>";
-                    echo "<td><a href='eliminar_usuario.php?id=".$usuario->getIdUsuario()."' class='btn btn-danger btn-sm'>Eliminar</a></td>";
+                    echo "<td><a href='actualizar_usuario.php?id=".$usuario->getIdUsuario()."' class='btn btn-success btn-sm'><i class='bi bi-pencil-square'></i></a></td>";
+                    echo "<td><a href='eliminar_usuario.php?id=".$usuario->getIdUsuario()."' class='btn btn-danger btn-sm'><i class='bi bi-pencil-square'></i></a></td>";
                     echo "</tr>";
                 }
                 ?>
