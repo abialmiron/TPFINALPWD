@@ -1,4 +1,3 @@
-   console.log(base_url+"Vista/Accion/accionIniciarSesion.php");
 $(document).ready(function () {
   $('form').submit(function (e) {
       e.preventDefault();

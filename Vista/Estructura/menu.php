@@ -1,6 +1,7 @@
 <?php
 if ($sesionActiva){
   $listaMenu = construirMenu($_SESSION['rol-activo']);
+  
 }
 ?>
 <nav class="menu hidden navbar navbar-expand-lg bg-light shadow fixed-top">
@@ -16,29 +17,16 @@ if ($sesionActiva){
         <!-- ITEMS DEL MENU -->
         <?php
           if ($sesionActiva){
+            // ITEMS DEL MENU SEGÚN EL ROL
             foreach ($listaMenu as $itemMenu){
             ?>
-
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo BASE_URL.$itemMenu->getMenuLink(); ?>"><?php echo $itemMenu->getMenuNombre(); ?></a>
               </li>
             <?php
             } 
-            ?>
-
-              <!-- <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle"   role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                  reCaptcha
-                </a>
-                <ul class="dropdown-menu">
-                  <li><a class="dropdown-item text-black" href="<?php echo BASE_URL ?>vista/reCaptcha">Librería reCaptcha</a></li>
-                  <li><hr class="dropdown-divider"></li>
-                  <li><a class="dropdown-item" href="<?php echo BASE_URL ?>vista/demo-v2_1">reCaptcha V2</a></li>
-                  <li><a class="dropdown-item" href="<?php echo BASE_URL ?>vista/demo-v3">reCaptcha V3</a></li>
-                </ul>
-              </li> -->
-            <?php
           } else {
+            // ITEMS DEL MENU PÚBLICO
           ?>
               <li class="nav-item">
                 <a class="nav-link"  href="<?php echo BASE_URL ?>Vista/public/productos.php">Productos</a></li>
@@ -60,7 +48,8 @@ if ($sesionActiva){
       ?>
         <div class=" dropdown">
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-            <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle">
+            <!-- <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle"> -->
+            <i class="bi bi-person-circle"></i>
             <span class="p-1"><?php echo $_SESSION['nombreUsuario']; ?> | <?php echo $_SESSION['rol-activo']->getRolDescripcion() ?></span>
           </a> 
           <ul class="dropdown-menu dropdown-menu-end text-small shadow" style="">
@@ -72,7 +61,7 @@ if ($sesionActiva){
               foreach ($_SESSION['roles'] as $rol){
                 ?>
               <li>
-                <a class="dropdown-item" href="<?php echo BASE_URL ?>Vista/public/index.php" onclick="console.log('Hola mundo');"><?php echo $rol;?></a>
+                <a class="dropdown-item" name= "#cambiar_rol" href="<?php echo BASE_URL ?>Vista/public/index.php" ><?php echo $rol->getRolDescripcion();?></a>
               </li>
               <?php
               }

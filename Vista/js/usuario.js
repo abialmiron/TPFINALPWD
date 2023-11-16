@@ -1,7 +1,6 @@
-$(document).on('change', '#cambiar_rol', function () {
-
-  var idRolVista = $(this)[0].value;
-  $.ajax({
+$(document).ready( function () {
+  $('#btnCambiarRol').click(function () {
+    $.ajax({
       type: "POST",
       url: '../Accion/accionCambiarRol.php',
       data: { idRol: idRol },
@@ -18,20 +17,12 @@ $(document).on('change', '#cambiar_rol', function () {
               failure()
           }
       }
+    })
   });
-
 });
 
 function failure() {
-  Swal.fire({
-      icon: 'error',
-      title: 'No se pudo cambiar el rol',
-      showConfirmButton: false,
-      timer: 1000
-  })
-  setTimeout(function () {
-      recargarPagina();
-  }, 800);
+  alert( 'No se pudo cambiar el rol');
 }
 
 function recargarPagina() {

@@ -1,5 +1,4 @@
 <?php
-// sesionActiva();
 $sesionActiva = $_SESSION['sesion-activa'];
 ?>
 <!DOCTYPE html>

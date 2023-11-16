@@ -7,11 +7,10 @@ class Session{
     public function __construct(){
 		$resp = session_start();
         if($resp){
-            $this->setObjUsuario(new AbmUsuario());
+            $this->objUsuario = null;
             $this->listaRoles=[];
             $this->mensajeoperacion="";
         }
-         
 		return $resp;
     }
 
@@ -22,11 +21,15 @@ class Session{
 	public function setObjUsuario($objUsuario)
 	{$this->objUsuario = $objUsuario; }
 
-	public function getListaRoles()
-	{ return $this->listaRoles; }
+	public function getListaRoles(){
+		return $this->listaRoles; 
+	}
 
-	public function setListaRoles($listaRoles)
-	{ $this->listaRoles = $listaRoles;}
+	public function setListaRoles($listaRoles){
+		foreach($listaRoles as $rol){
+			array_push($this->listaRoles,$rol);
+		} 
+	}
 
 	public function getMensajeoperacion()
 	{return $this->mensajeoperacion;}
@@ -34,24 +37,30 @@ class Session{
 	public function setMensajeoperacion($mensajeoperacion)
 	{$this->mensajeoperacion = $mensajeoperacion; }
 
-    
-	private function iniciar($nombreUsuario, $arrayRoles){
-		$_SESSION["nombreUsuario"] = $nombreUsuario;
-		$_SESSION["roles"] = $arrayRoles;
-		$_SESSION['idUsuario'] = $this->getObjUsuario()->getIdUsuario();
+	private function iniciar($objUsuario){
+		$this->setObjUsuario($objUsuario);
+		$param = ["idusuario"=>$objUsuario->getIdUsuario()];
 		$objRol = new AbmRol();
-		$param['idrol'] = $arrayRoles[0];
-		$_SESSION["rol-activo"] = $objRol->buscar($param)[0];
+		$objUsuarioRol = new AbmUsuarioRol();
+		$listaRoles = [];
+		$_SESSION["nombreUsuario"] = $objUsuario->getUsNombre();
+		$_SESSION['idUsuario'] = $objUsuario->getIdUsuario();
+		$listaUsuarioRol = $objUsuarioRol->buscar($param);
+		foreach($listaUsuarioRol as $usuarioRol){
+			array_push($listaRoles,$usuarioRol->getObjRol());
+		}
+		$this->setListaRoles($listaRoles);
+		$_SESSION["roles"] = $this->getListaRoles();
+		$_SESSION["rol-activo"] = $listaRoles[0];
 	}
     
 	public function validar($param){
-		$arrayUsuario = $this->getObjUsuario()->buscar($param);
+		$objAbmUsuario = new AbmUsuario();
+		$objUsuario = $objAbmUsuario->buscar($param)[0];
         $resp = false;
-        if($arrayUsuario != null){
-            if($param["password"] == $arrayUsuario[0]->getUsPass()){
-                $this->setObjUsuario($arrayUsuario[0]);
-                $idRoles = $this->getIdRoles();
-                $this->iniciar($param["nombreUsuario"], $idRoles);
+        if($objUsuario != null){
+            if($param["password"] == $objUsuario->getUsPass()){
+                $this->iniciar($objUsuario);
                 $resp = true;
             }
         }
@@ -77,7 +86,7 @@ class Session{
 	public function getIdRoles(){
 		if($this->getObjUsuario() != null){
 			$objUsuarioRol = new AbmUsuarioRol();
-			$param["idUsuario"] = $this->getObjUsuario()->getIdUsuario();
+			$param["idusuario"] = $this->getObjUsuario()->getIdUsuario();
 			$arrayRolesUsuario = $objUsuarioRol->buscar($param);
 			$arrayRol = [];
 			$idRoles=[];

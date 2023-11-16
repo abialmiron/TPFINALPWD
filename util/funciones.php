@@ -57,8 +57,11 @@ function construirMenu($rolActivo){
 
 // Funciones de sesión
 function sesionActiva(){
-    $_SESSION['objeto'] = new Session();
-    $_SESSION['sesion-activa'] = $_SESSION['objeto']->activa();   
+    if(!isset($_SESSION['sesion-activa'])){
+        $_SESSION['objeto'] = new Session();
+        $_SESSION['sesion-activa'] = $_SESSION['objeto']->activa();
+    }   
+    return $_SESSION['sesion-activa'];
 }
 
 ?>

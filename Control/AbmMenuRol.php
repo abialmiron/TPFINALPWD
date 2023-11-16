@@ -135,16 +135,16 @@ class AbmMenuRol {
      */
     
     public function buscar($param){
-       // verEstructura($param);
+        //verEstructura($param);
         
         $where = " true ";
         if ($param<>NULL){
             if  (isset($param['idmenu']))
                 $where.=" and menu.idmenu='".$param['idmenu']."'";
-                if  (isset($param['idrol']))
-                    $where.=" and menurol.idrol ='".$param['idrol']."'";
-                    if  (isset($param['idpadre']))
-                        $where.=" and idpadre ='".$param['idpadre']."'";
+            if  (isset($param['idrol']))
+                $where.=" and menurol.idrol ='".$param['idrol']."'";
+            if  (isset($param['idpadre']))
+                $where.=" and idpadre ='".$param['idpadre']."'";
         }
         
         $arreglo = MenuRol::listar($where);

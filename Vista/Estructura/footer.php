@@ -10,4 +10,5 @@
 <script src="<?php echo BASE_URL ?>Vista/js/bootstrap.bundle.min.js"></script>
 <script src="<?php echo BASE_URL ?>Vista/js/validator.js"></script>
 <script src="<?php echo BASE_URL ?>Vista/js/menu.js"></script>
+<script src="<?php echo BASE_URL ?>Vista/js/usuario.js"></script>
 <script src="<?php echo BASE_URL ?>Vista/js/cerrarSesion.js"></script>

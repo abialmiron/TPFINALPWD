@@ -1,9 +1,11 @@
 <?php
 include_once("../../configuracion.php");
+// $_SESSION['objeto']->cerrar();
 include_once("../Estructura/head.php");
 if (isset ($_GET['error'])){
     echo '<script language="javascript">alert("'.$GLOBALS['error'][$_GET['error']].'","danger");</script>';
     }
+
 ?>
 <main>
     <div class="paravideo parallax">

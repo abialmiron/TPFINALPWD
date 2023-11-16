@@ -25,7 +25,7 @@ class AbmRol{
         
         if( isset($param['idrol']) ){
             $obj = new Rol();
-            $obj->setear($param['idrol'], null);
+            $obj->setear($param['idrol'], $param['rodescripcion']);
         }
         return $obj;
     }
