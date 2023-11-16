@@ -120,19 +120,19 @@ class Producto {
     public function insertar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="INSERT INTO producto (pronombre, prodetalle, procantstock, proimporte, proimagen) VALUES ('".$this->getPronombre()."','".$this->getProdetalle()."',".$this-> getProcantstock().",".$this -> getProimporte()."";
+        $sql="INSERT INTO producto (pronombre, prodetalle, procantstock, proimporte) VALUES ('".$this->getPronombre()."','".$this->getProdetalle()."',".$this-> getProcantstock().",".$this -> getProimporte()."";
        
-        if ($this->getProimagen()!=null && $this->getProimagen()!='null'){
+        /*if ($this->getProimagen()!=null && $this->getProimagen()!='null'){
             
             $sql.= ",'".$this->getProimagen()."'";
         }else {
             $sql.=',null';
-        }
+        }*/
         $sql.= ");";
        // echo $sql;
         if ($base->Iniciar()) {
-            
-            if ($elid = $base->Ejecutar($sql)) {
+            $elid = $base->Ejecutar($sql);
+            if ($elid != NULL) {
                 $this->setIdProducto($elid);
                 $resp = true;
             } else {

@@ -63,21 +63,34 @@ class AbmProducto {
             return $resp;
     }
     
+    public function cargarObjetoSinID($param){
+        $obj = null;
+        if(array_key_exists('pronombre',$param) && array_key_exists('prodetalle',$param) && array_key_exists('procantstock',$param) && array_key_exists('proimporte', $param)){
+            
+            $obj = new Producto();
+            $obj-> setear(null, $param['pronombre'], $param['prodetalle'], $param['procantstock'], $param['proimporte'], null);
+            
+            
+            /*if(array_key_exists('proimagen', $param)){
+                $obj-> setear($param['idproducto'], $param['pronombre'], $param['prodetalle'], $param['procantstock'], $param['proimagen'], $param['proimporte']);
+            } else {
+                
+            }*/
+        }
+        return $obj;
+    }
+
     /**
      *
      * @param array $param
      */
     public function alta($param){
         
-        //echo "entramos a alta";
-        
         $resp = false;
         $elObjtProducto = new Producto();
-        $elObjtProducto = $this->cargarObjeto($param);
-        // verEstructura($elObjtProducto);
+        $elObjtProducto = $this->cargarObjetoSinID($param);
         
-        // print_R($elObjtProducto);
-        if ($elObjtProducto!=null and $elObjtProducto->insertar()){
+        if ($elObjtProducto!=null && $elObjtProducto->insertar()){
             $resp = true;
         }
         

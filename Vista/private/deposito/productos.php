@@ -7,7 +7,7 @@ if (count($listaProductos) > 0) {
 ?>
 <div class="container mt-5">
         <h1 style="margin-top: 5%;">Gestión de Productos</h1>
-        <a href='' class='btn btn-success btn-sm' style="float: right;margin: 8px;"><i class='bi bi-plus-circle'></i></a></p>
+        <a href='agregar_producto.php' class='btn btn-success btn-sm' style="float: right;margin: 8px;"><i class='bi bi-plus-circle'></i></a></p>
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>
