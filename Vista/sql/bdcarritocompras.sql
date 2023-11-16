@@ -130,10 +130,18 @@ INSERT INTO `menurol` (`idmenu`, `idrol`) VALUES
 
 CREATE TABLE `producto` (
   `idproducto` bigint(20) NOT NULL,
-  `pronombre` int(11) NOT NULL,
+  `pronombre` varchar(20) NOT NULL,
   `prodetalle` varchar(512) NOT NULL,
-  `procantstock` int(11) NOT NULL
+  `procantstock` int(11) NOT NULL,
+  `proimporte` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `producto`
+--
+
+INSERT INTO `producto` (`pronombre`, `prodetalle`, `procantstock`, `proimporte`) VALUES
+('Juego de cartas Paw Patrol', 'Un mazo de cartas con tus personajes favoritos de Paw Patrol!', '15', '2500');
 
 -- --------------------------------------------------------
 

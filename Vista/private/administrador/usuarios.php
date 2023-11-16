@@ -8,7 +8,8 @@ $listaRoles = $objRol->buscar(null);
 if (count($listaUsuario) > 0) {
 ?>
  <div class="container mt-5">
-        <h2>Tabla de Usuarios</h2>
+        <h1 style="margin-top: 5%;">Gestión de Usuarios</h1>
+        <a href='' class='btn btn-success btn-sm' style="float: right;margin: 8px;"><i class='bi bi-plus-circle'></i></a></p>
         <table class="table table-striped table-bordered">
             <thead class="thead-dark">
                 <tr>
@@ -26,7 +27,7 @@ if (count($listaUsuario) > 0) {
                     echo "<td>".$usuario->getUsNombre()."</td>";
                     echo "<td>".$usuario->getUsMail()."</td>";
                     echo "<td>".$usuario->getUsDeshabilitado()."</td>";
-                    echo "<td><a href='actualizar_usuario.php?id=".$usuario->getIdUsuario()."' class='btn btn-success btn-sm'><i class='bi bi-pencil-square'></i></a></td>";
+                    echo "<td><a href='actualizar_usuario.php?id=".$usuario->getIdUsuario()."' class='btn btn-primary btn-sm'><i class='bi bi-pencil-square'></i></a></td>";
                     echo "<td><a href='eliminar_usuario.php?id=".$usuario->getIdUsuario()."' class='btn btn-danger btn-sm'><i class='bi bi-trash3'></i></a></td>";
                     echo "</tr>";
                 }
