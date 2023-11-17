@@ -42,7 +42,7 @@ function registerSuccess() {
 
 
 function redireccionarIndex() {
-  location.href = base_url+"Vista/public/index.php";
+  location.href = base_url+"Vista/private/index.php";
 }
 
 function registerFailure() {

@@ -20,7 +20,7 @@ function cerrarSesion(){
 
 function sesionCerrada(){
     alert ('Se cerró la sesión');
-        location.href = base_url+"Vista/public/index.php";
+    location.href = base_url+"Vista/public/index.php";
 }
 
 function sesionNoCerrada(){

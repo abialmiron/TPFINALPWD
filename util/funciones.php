@@ -51,7 +51,7 @@ function construirMenu($rolActivo){
     foreach ($listaMenuRol as $menuRol){
         $listaMenu[] = $menuRol->getObjMenu();
     }
-    $listaMenu = array_unique($listaMenu);
+    $listaMenu = array_unique($listaMenu,SORT_REGULAR);
     return $listaMenu;
 }
 

@@ -1,6 +1,9 @@
 <?php
 include_once("../../configuracion.php");
-// $_SESSION['objeto']->cerrar();
+if ($_SESSION['sesion-activa']){
+    header("location:".BASE_URL."Vista/private/?error=1");
+    exit();
+}
 include_once("../Estructura/head.php");
 if (isset ($_GET['error'])){
     echo '<script language="javascript">alert("'.$GLOBALS['error'][$_GET['error']].'","danger");</script>';
