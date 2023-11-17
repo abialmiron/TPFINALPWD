@@ -19,11 +19,13 @@ if ($sesionActiva){
           if ($sesionActiva){
             // ITEMS DEL MENU SEGÚN EL ROL
             foreach ($listaMenu as $itemMenu){
+              if ($itemMenu->getMenuDeshabilitado() == NULL) {
             ?>
               <li class="nav-item">
                 <a class="nav-link" href="<?php echo BASE_URL.$itemMenu->getMenuLink(); ?>"><?php echo $itemMenu->getMenuNombre(); ?></a>
               </li>
             <?php
+              }
             } 
           } else {
             // ITEMS DEL MENU PÚBLICO

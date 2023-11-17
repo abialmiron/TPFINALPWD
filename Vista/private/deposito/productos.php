@@ -27,8 +27,8 @@ if (count($listaProductos) > 0) {
                     echo "<td>".$producto->getProdetalle()."</td>";
                     echo "<td>".$producto->getProimporte()."</td>";
                     echo "<td>".$producto->getProcantstock()."</td>";
-                    echo "<td><a href='actualizar_usuario.php?id=".$producto->getIdproducto()."' class='btn btn-primary btn-sm'><i class='bi bi-pencil-square'></i></a></td>";
-                    echo "<td><a href='eliminar_usuario.php?id=".$producto->getIdproducto()."' class='btn btn-danger btn-sm'><i class='bi bi-trash3'></i></a></td>";
+                    echo "<td><a href='actualizar_producto.php?id=".$producto->getIdproducto()."' class='btn btn-primary btn-sm'><i class='bi bi-pencil-square'></i></a></td>";
+                    echo "<td><a href='eliminar_producto.php?id=".$producto->getIdproducto()."' class='btn btn-danger btn-sm'><i class='bi bi-trash3'></i></a></td>";
                     echo "</tr>";
                 }
                 ?>

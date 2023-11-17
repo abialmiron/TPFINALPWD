@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-11-2023 a las 07:11:37
+-- Tiempo de generación: 17-11-2023 a las 17:11:24
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.4.7
 
@@ -102,19 +102,20 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`idmenu`, `menombre`, `medescripcion`, `melink`, `idpadre`, `medeshabilitado`) VALUES
-(1, 'Contacto', 'Enlace a la página de contacto', 'Vista/public/contacto.php', NULL, '2023-11-11 07:03:58'),
-(3, 'Nosotros', 'Enlace a la página de presentación del equipo de trabajo', 'Vista/public/nosotros.php', NULL, '0000-00-00 00:00:00'),
-(4, 'Productos', 'Enlace a la página de productos ', 'Vista/public/productos.php', NULL, '0000-00-00 00:00:00'),
+(1, 'Contacto', 'Enlace a la página de contacto', 'Vista/public/contacto.php', NULL, NULL),
+(3, 'Nosotros', 'Enlace a la página de presentación del equipo de trabajo', 'Vista/public/nosotros.php', NULL, NULL),
+(4, 'Productos', 'Enlace a la página de productos ', 'Vista/public/productos.php', NULL, NULL),
 (5, 'Productos', 'Gestión de productos', 'Vista/private/deposito/productos.php', NULL, NULL),
 (6, 'Pedidos', 'Gestion de pedidos', 'Vista/private/deposito/pedidos.php', NULL, NULL),
-(7, 'Rubros', 'Gestión de rubros', 'Vista/private/deposito/rubros.php', NULL, '2023-11-17 02:49:22'),
-(8, 'Carrito', 'Carrito de compras del usuario', 'Vista/private/cliente/carrito.php', NULL, '2023-11-17 03:46:16'),
-(9, 'Mis Pedidos', 'Vista de los pedidos realizados por el cliente actual', 'Vista/private/cliente/pedidos.php', NULL, '2023-11-17 03:46:16'),
-(10, 'Mi Perfil', 'Perfil del usuario Cliente', 'Vista/private/cliente/', NULL, '2023-11-17 03:48:58'),
-(11, 'Usuarios', 'Gestión de usuarios', 'Vista/private/administrador/usuarios.php', NULL, '2023-11-17 04:20:03'),
-(12, 'Menus', 'Gestión de menús', 'Vista/private/administrador/menus.php', NULL, '2023-11-17 04:20:03'),
-(13, 'Roles', 'Gestión de Roles', 'Vista/private/administrador/roles.php', NULL, '2023-11-17 04:20:03'),
-(14, 'Perfil', 'Perfil de Administrador', 'Vista/private/administrador/', NULL, '2023-11-17 04:20:03');
+(7, 'Rubros', 'Gestión de rubros', 'Vista/private/deposito/rubros.php', NULL, NULL),
+(8, 'Carrito', 'Carrito de compras del usuario', 'Vista/private/cliente/carrito.php', NULL, NULL),
+(9, 'Mis Pedidos', 'Vista de los pedidos realizados por el cliente actual', 'Vista/private/cliente/pedidos.php', NULL, NULL),
+(10, 'Mi Perfil', 'Perfil del usuario Cliente', 'Vista/private/cliente/', NULL, NULL),
+(11, 'Usuarios', 'Gestión de usuarios', 'Vista/private/administrador/usuarios.php', NULL, NULL),
+(12, 'Menus', 'Gestión de menús', 'Vista/private/administrador/menus.php', NULL, NULL),
+(13, 'Roles', 'Gestión de Roles', 'Vista/private/administrador/roles.php', NULL, NULL),
+(14, 'Perfil', 'Perfil de Administrador', 'Vista/private/administrador/', NULL, NULL),
+(15, 'Nuevo Producto', 'Agregar un nuevo producto', 'Vista/private/deposito/agregar_producto.php', NULL, '2023-11-01 16:10:37');
 
 -- --------------------------------------------------------
 
@@ -143,7 +144,8 @@ INSERT INTO `menurol` (`idmenu`, `idrol`) VALUES
 (9, 3),
 (11, 1),
 (12, 1),
-(13, 1);
+(13, 1),
+(15, 2);
 
 -- --------------------------------------------------------
 
@@ -340,7 +342,7 @@ ALTER TABLE `compraitem`
 -- AUTO_INCREMENT de la tabla `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `idmenu` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
+  MODIFY `idmenu` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
