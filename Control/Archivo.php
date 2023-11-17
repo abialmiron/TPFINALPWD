@@ -7,7 +7,7 @@ class Archivo{
     private $error;
 
 
-    public function __construct($temp_name,$name,$type,$size,$error){
+    public function __construct($temp_name,$name,$type,$size){
         $this->temp_name = $temp_name;
         $this->name = $name;
         $this->type = $type;
@@ -56,16 +56,12 @@ class Archivo{
     }
 
     public function subirImagen(){
+        $dir = ROOT_PATH.'imagenes/';
         $resp = false;
-        $size = getimagesize($this->getTempName());
-        if ($size > 0){
-            if (!copy($this->getTempName(), $this->getName())) {
-                $this->setError("ERROR: no se pudo copiar la imágen");
-            }else{
+        if (!copy($this->getTempName(), $dir.$this->getName())) {
+            $this->setError("ERROR: no se pudo copiar la imágen");
+        }else{
                 $resp = true;;
-            }
-        } else {
-            $this->setError("ERROR: se debe subir una imágen");
         }
         return $resp;
     }

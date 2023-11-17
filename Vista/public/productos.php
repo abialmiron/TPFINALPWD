@@ -1,6 +1,8 @@
 <?php
 include_once("../../configuracion.php");
+
 include_once("../Estructura/head.php");
+$dir = '../../imagenes/';
 $productos = new AbmProducto();
 $listaProductos = $productos->buscar(null);
 if (count($listaProductos) > 0) {
@@ -15,11 +17,11 @@ if (count($listaProductos) > 0) {
                 ?>
                 <div class="col-md-4 mb-4">
                     <div class="card">
-                        <!--<img src="<?php //echo $producto['imagen']; ?>" class="card-img-top" alt="">-->
+                        <img src="<?php echo $dir.$producto->getProimagen(); ?>" class="card-img-top rounded"  alt="">
                         <div class="card-body">
                             <h5 class="card-title"><?php echo $producto->getPronombre(); ?></h5>
                             <p class="card-text"><?php echo $producto->getProdetalle(); ?></p>
-                            <p class="card-text">$<?php //echo $producto->getProcantstock(); ?></p>
+                            <p class="card-text">$<?php echo $producto->getProimporte(); ?></p>
                             <button class="btn btn-primary btn-sm">Agregar al carrito</button>
                         </div>
                     </div>

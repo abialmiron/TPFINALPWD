@@ -21,7 +21,7 @@ class Producto {
         
     }
     
-    public function setear($idproducto, $pronombre, $prodetalle, $procantstock, $proimagen , $proimporte)    {
+    public function setear($idproducto, $pronombre, $prodetalle, $procantstock, $proimporte , $proimagen)    {
         
         $this->setIdproducto($idproducto);
         $this->setPronombre($pronombre);
@@ -107,7 +107,7 @@ class Producto {
             if($res>-1){
                 if($res>0){
                     $row = $base->Registro();
-                    $this->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'], $row['procantstock'], $row['proimagen'],$row['proimporte']);
+                    $this->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'], $row['procantstock'], $row['proimporte'],$row['proimagen']);
                     
                 }
             }
@@ -120,14 +120,14 @@ class Producto {
     public function insertar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="INSERT INTO producto (pronombre, prodetalle, procantstock, proimporte) VALUES ('".$this->getPronombre()."','".$this->getProdetalle()."',".$this-> getProcantstock().",".$this -> getProimporte()."";
+        $sql="INSERT INTO producto (pronombre, prodetalle, procantstock, proimporte,proimagen) VALUES ('".$this->getPronombre()."','".$this->getProdetalle()."',".$this-> getProcantstock().",".$this -> getProimporte()."";
        
-        /*if ($this->getProimagen()!=null && $this->getProimagen()!='null'){
+        if ($this->getProimagen()!=null && $this->getProimagen()!='null'){
             
             $sql.= ",'".$this->getProimagen()."'";
         }else {
             $sql.=',null';
-        }*/
+        }
         $sql.= ");";
        // echo $sql;
         if ($base->Iniciar()) {
@@ -200,7 +200,7 @@ class Producto {
                 while ($row = $base->Registro()){
                     
                     $obj = new Producto();
-                    $obj->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'], $row['procantstock'],null,$row['proimporte']);//, $row['proimagen'], $row['proimporte']);
+                    $obj->setear($row['idproducto'], $row['pronombre'], $row['prodetalle'], $row['procantstock'],$row['proimporte'],$row['proimagen']);//, $row['proimagen'], $row['proimporte']);
                     array_push($arreglo, $obj);
                 }
             }
