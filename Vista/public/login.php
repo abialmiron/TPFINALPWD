@@ -1,7 +1,7 @@
 <?php
 include_once("../../configuracion.php");
 if ($_SESSION['sesion-activa']){
-    header("location:".BASE_URL."Vista/public/?error=1");
+    header("location:".BASE_URL."Vista/public/index.php?error=1");
     exit();
 }
 include_once("../Estructura/head.php");

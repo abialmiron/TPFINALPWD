@@ -1,3 +1,7 @@
+<?php
+include_once("../../../configuracion.php");
+include_once(ROOT_PATH."Vista/Estructura/head.php");
+?>
 <main>
     <div class="container">
         <div class="row">
@@ -7,3 +11,6 @@
         </div>
     </div>
 </main>
+<?php
+include_once(ROOT_PATH."Vista/Estructura/footer.php");
+?>

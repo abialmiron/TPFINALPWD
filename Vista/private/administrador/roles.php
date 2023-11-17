@@ -12,5 +12,5 @@ include_once("../../Estructura/head.php");
     </div>
 </main>
 <?php
-include_once("../estructura/footer.php");
+include_once(ROOT_PATH."Vista/estructura/footer.php");
 ?>

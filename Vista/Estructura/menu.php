@@ -12,7 +12,7 @@ if ($sesionActiva){
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item p-0">
-          <a class="nav-link p-0 me-3 ms-3" href="<?php echo BASE_URL; ?>"><img style="height: 35px;" class="me-2" src="<?php echo BASE_URL."Vista/images/logotipo-menu-50.png"; ?>"/></a>
+          <a class="nav-link p-0 me-3 ms-3" href="<?php echo $sesionActiva? BASE_URL."Vista/private/":BASE_URL."Vista/public/"; ?>"><img style="height: 35px;" class="me-2" src="<?php echo BASE_URL."Vista/images/logotipo-menu-50.png"; ?>"/></a>
         </li>
         <!-- ITEMS DEL MENU -->
         <?php
@@ -53,7 +53,7 @@ if ($sesionActiva){
             <span class="p-1"><?php echo $_SESSION['nombreUsuario']; ?> | <?php echo $_SESSION['rol-activo']->getRolDescripcion() ?></span>
           </a> 
           <ul class="dropdown-menu dropdown-menu-end text-small shadow" style="">
-            <li><a class="dropdown-item" href="#">Perfil</a></li>
+            <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>Vista/private/perfil.php">Perfil</a></li>
            
               <li><p class="dropdown-item link">Elegir Rol</p>
             <ul class="dropdown-menu dropdown-submenu dropdown-submenu-left">

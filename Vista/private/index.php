@@ -1,14 +1,9 @@
 <?php
 include_once("../../configuracion.php");
-if (!$_SESSION['sesion-activa']){
-  header("location:".BASE_URL."Vista/public/?error=1");
-  exit();
-}
 include_once("../Estructura/head.php");
 if (isset ($_GET['error'])){
     echo '<script language="javascript">alert("'.$GLOBALS['error'][$_GET['error']].'","danger");</script>';
     }
-
 ?>
 <main>
 <div class="container text-center">
@@ -26,5 +21,5 @@ if (isset ($_GET['error'])){
 </main>
 
 <?php
-include_once("../estructura/footer.php");
+include_once(ROOT_PATH."Vista/estructura/footer.php");
 ?>

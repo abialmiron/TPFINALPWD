@@ -1,14 +1,6 @@
 <?php
-include_once("../../configuracion.php");
-if (!$_SESSION['sesion-activa']){
-  header("location:".BASE_URL."Vista/public/?error=1");
-  exit();
-}
-include_once("../Estructura/head.php");
-if (isset ($_GET['error'])){
-    echo '<script language="javascript">alert("'.$GLOBALS['error'][$_GET['error']].'","danger");</script>';
-    }
-
+include_once("../../../configuracion.php");
+include_once(ROOT_PATH."Vista/Estructura/head.php");
 ?>
 <main>
     <div class="container">
@@ -19,3 +11,6 @@ if (isset ($_GET['error'])){
         </div>
     </div>
 </main>
+<?php
+include_once(ROOT_PATH."Vista/estructura/footer.php");
+?>
