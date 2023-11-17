@@ -22,7 +22,7 @@ if (count($listaProductos) > 0) {
                             <h5 class="card-title"><?php echo $producto->getPronombre(); ?></h5>
                             <p class="card-text"><?php echo $producto->getProdetalle(); ?></p>
                             <p class="card-text">$<?php echo $producto->getProimporte(); ?></p>
-                            <button class="btn btn-primary btn-sm">Agregar al carrito</button>
+                            <button class="btn btn-primary btn-sm" id="sumarCarrito"><i class="bi bi-cart-plus-fill"></i></button>
                         </div>
                     </div>
                 </div>
