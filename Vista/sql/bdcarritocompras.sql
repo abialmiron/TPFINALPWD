@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-11-2023 a las 13:53:58
+-- Tiempo de generación: 17-11-2023 a las 07:11:37
 -- Versión del servidor: 10.4.13-MariaDB
 -- Versión de PHP: 7.4.7
 
@@ -18,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de datos: `bdcarritodecompras`
+-- Base de datos: `bdcarritocompras`
 --
 
 -- --------------------------------------------------------
@@ -102,7 +102,19 @@ CREATE TABLE `menu` (
 --
 
 INSERT INTO `menu` (`idmenu`, `menombre`, `medescripcion`, `melink`, `idpadre`, `medeshabilitado`) VALUES
-(1, 'Contacto', 'Enlace a la página de contacto', '\'Vista/public/contacto.php\'', NULL, '2023-11-11 07:03:58');
+(1, 'Contacto', 'Enlace a la página de contacto', 'Vista/public/contacto.php', NULL, '2023-11-11 07:03:58'),
+(3, 'Nosotros', 'Enlace a la página de presentación del equipo de trabajo', 'Vista/public/nosotros.php', NULL, '0000-00-00 00:00:00'),
+(4, 'Productos', 'Enlace a la página de productos ', 'Vista/public/productos.php', NULL, '0000-00-00 00:00:00'),
+(5, 'Productos', 'Gestión de productos', 'Vista/private/deposito/productos.php', NULL, NULL),
+(6, 'Pedidos', 'Gestion de pedidos', 'Vista/private/deposito/pedidos.php', NULL, NULL),
+(7, 'Rubros', 'Gestión de rubros', 'Vista/private/deposito/rubros.php', NULL, '2023-11-17 02:49:22'),
+(8, 'Carrito', 'Carrito de compras del usuario', 'Vista/private/cliente/carrito.php', NULL, '2023-11-17 03:46:16'),
+(9, 'Mis Pedidos', 'Vista de los pedidos realizados por el cliente actual', 'Vista/private/cliente/pedidos.php', NULL, '2023-11-17 03:46:16'),
+(10, 'Mi Perfil', 'Perfil del usuario Cliente', 'Vista/private/cliente/', NULL, '2023-11-17 03:48:58'),
+(11, 'Usuarios', 'Gestión de usuarios', 'Vista/private/administrador/usuarios.php', NULL, '2023-11-17 04:20:03'),
+(12, 'Menus', 'Gestión de menús', 'Vista/private/administrador/menus.php', NULL, '2023-11-17 04:20:03'),
+(13, 'Roles', 'Gestión de Roles', 'Vista/private/administrador/roles.php', NULL, '2023-11-17 04:20:03'),
+(14, 'Perfil', 'Perfil de Administrador', 'Vista/private/administrador/', NULL, '2023-11-17 04:20:03');
 
 -- --------------------------------------------------------
 
@@ -120,7 +132,18 @@ CREATE TABLE `menurol` (
 --
 
 INSERT INTO `menurol` (`idmenu`, `idrol`) VALUES
-(1, 3);
+(1, 3),
+(3, 2),
+(3, 3),
+(4, 3),
+(5, 2),
+(6, 2),
+(7, 2),
+(8, 3),
+(9, 3),
+(11, 1),
+(12, 1),
+(13, 1);
 
 -- --------------------------------------------------------
 
@@ -130,18 +153,19 @@ INSERT INTO `menurol` (`idmenu`, `idrol`) VALUES
 
 CREATE TABLE `producto` (
   `idproducto` bigint(20) NOT NULL,
-  `pronombre` varchar(20) NOT NULL,
+  `pronombre` varchar(50) NOT NULL,
   `prodetalle` varchar(512) NOT NULL,
-  `procantstock` int(11) NOT NULL,
-  `proimporte` int(11) NOT NULL
+  `proimporte` float NOT NULL DEFAULT 0,
+  `proimagen` varchar(100) NOT NULL,
+  `procantstock` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcado de datos para la tabla `producto`
 --
 
-INSERT INTO `producto` (`pronombre`, `prodetalle`, `procantstock`, `proimporte`) VALUES
-('Juego de cartas Paw Patrol', 'Un mazo de cartas con tus personajes favoritos de Paw Patrol!', '15', '2500');
+INSERT INTO `producto` (`idproducto`, `pronombre`, `prodetalle`, `proimporte`, `proimagen`, `procantstock`) VALUES
+(1, 'Titere', 'Muñeco de madera', 0, '', 10);
 
 -- --------------------------------------------------------
 
@@ -182,7 +206,10 @@ CREATE TABLE `usuario` (
 --
 
 INSERT INTO `usuario` (`idusuario`, `usnombre`, `uspass`, `usmail`, `usdeshabilitado`) VALUES
-(1, 'Admin', '25d55ad283aa400af464c76d713c07ad', 'admin@toys.com.ar', NULL);
+(1, 'Admin', 'aef047d85e1cbb58cc25a6978d960a3f', 'admin@toys.com.ar', NULL),
+(4, 'OmarD', 'aef047d85e1cbb58cc25a6978d960a3f', 'omar@toys.com.ar', '0000-00-00 00:00:00'),
+(5, 'OmarC', 'aef047d85e1cbb58cc25a6978d960a3f', 'omarc@toys.com.ar', '0000-00-00 00:00:00'),
+(6, 'OmarA', 'aef047d85e1cbb58cc25a6978d960a3f', 'omara@toys.com.ar', '0000-00-00 00:00:00');
 
 -- --------------------------------------------------------
 
@@ -202,7 +229,10 @@ CREATE TABLE `usuariorol` (
 INSERT INTO `usuariorol` (`idusuario`, `idrol`) VALUES
 (1, 1),
 (1, 2),
-(1, 3);
+(1, 3),
+(4, 2),
+(5, 3),
+(6, 1);
 
 --
 -- Índices para tablas volcadas
@@ -310,13 +340,13 @@ ALTER TABLE `compraitem`
 -- AUTO_INCREMENT de la tabla `menu`
 --
 ALTER TABLE `menu`
-  MODIFY `idmenu` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `idmenu` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de la tabla `producto`
 --
 ALTER TABLE `producto`
-  MODIFY `idproducto` bigint(20) NOT NULL AUTO_INCREMENT;
+  MODIFY `idproducto` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT de la tabla `rol`
@@ -328,7 +358,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `idusuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `idusuario` bigint(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- Restricciones para tablas volcadas
