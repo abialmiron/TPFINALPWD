@@ -61,7 +61,7 @@ if ($sesionActiva){
               foreach ($_SESSION['roles'] as $rol){
                 ?>
               <li>
-                <a class="dropdown-item" name= "#cambiar_rol" href="<?php echo BASE_URL ?>Vista/public/index.php" ><?php echo $rol->getRolDescripcion();?></a>
+                <a class="dropdown-item link" onclick="cambiarRol(<?php echo $rol->getIdRol(); ?>);" ><?php echo $rol->getRolDescripcion();?></a>
               </li>
               <?php
               }

@@ -1,16 +1,14 @@
-$(document).ready( function () {
-  $('#btnCambiarRol').click(function () {
+function cambiarRol (idRol) {
     $.ajax({
       type: "POST",
       url: '../Accion/accionCambiarRol.php',
-      data: { idRol: idRol },
+      data: { idrol: idRol },
 
       success: function (respuesta) {
+        console.log(respuesta)
           var jsonData = JSON.parse(respuesta);
-
-          // user is logged in successfully in the back-end
-          // let's redirect
           if (jsonData.success == "1") {
+            alert('Se cambio el rol correctamente');
               recargarPagina();
           }
           else if (jsonData.success == "0") {
@@ -18,8 +16,8 @@ $(document).ready( function () {
           }
       }
     })
-  });
-});
+  };
+
 
 function failure() {
   alert( 'No se pudo cambiar el rol');
