@@ -1,15 +1,3 @@
-<?php
-  // $sesion = Session::getInstance();
-  // $sesionActiva = isset($sesion->rolActivo);
-  // verEstructura($sesion->tienePermiso);
-  // verEstructura($sesion->rolActivo);
-// if ($sesionActiva){
-  // verEstructura($sesion->rolActivo);
-  // $listaMenu = $sesion->construirMenu($sesion->rolActivo);
-
-  // verEstructura($listaMenu);
-// }
-?>
 <nav class="menu hidden navbar navbar-expand-lg bg-light shadow fixed-top">
   <div class="container-fluid">
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -58,7 +46,7 @@
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <!-- <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle"> -->
             <i class="bi bi-person-circle"></i>
-            <span class="p-1"><?php echo $sesion->getNombreUsuario(); ?> | <?php /*echo $sesion->getRolActivo->getRolDescripcion();*/ ?></span>
+            <span class="p-1"><?php echo $sesion->getNombreUsuario().' | '.$sesion->getRolActivo()->getRolDescripcion(); ?></span>
           </a> 
           <ul class="dropdown-menu dropdown-menu-end text-small shadow" style="">
             <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>Vista/private/perfil.php">Perfil</a></li>

@@ -231,7 +231,8 @@ class Session
 		 * Setea la lista de menú de la sesión
 		 * @param object $listaMenu
 		 */
-		public function setListaMenu($listaMenu){
+		public function setListaMenu($rolActivo){
+			$listaMenu = $this->construirMenu($rolActivo);
 			$_SESSION['listaMenu'] = $listaMenu; 
 		}
 
@@ -274,7 +275,7 @@ class Session
 			}
 			$this->setListaRoles($listaRoles);
 			$this->setRolActivo($listaRoles[0]);
-			$this->setListaMenu($this->construirMenu($this->getRolActivo()));
+			$this->setListaMenu($this->getRolActivo());
 		}
 
 		/**
@@ -314,9 +315,24 @@ class Session
 			return $listaMenu;
 		}
 		
-}
-
-
+		
+		/**
+		 * Devuelve verdadero si el rol activo tiene permiso para acceder a la url
+		 * @param string $url
+		 * @return boolean
+		 */
+		function tienePermiso($url){
+			$tienePermiso = false;
+			$listaMenu = $this->getListaMenu();
+			foreach($listaMenu as $itemMenu){
+				if(strstr($url,$itemMenu->getMenuLink())!=false){ 
+					$tienePermiso = true;
+				}
+			}
+			return $tienePermiso;
+		}
+	}
+		
 
 /*
 class Session{

@@ -7,6 +7,7 @@ $objRolActivo = $objRol->buscar($datos);
 // verEstructura($objRolActivo);
 if(count($objRolActivo) > 0){
     $sesion->setRolActivo ($objRolActivo[0]);
+    $sesion->setListaMenu($sesion->getRolActivo());
     echo json_encode(array('success'=>1));
 }else{
     echo json_encode(array('success'=>0));

@@ -1,7 +1,8 @@
 function cambiarRol (idRol) {
+
     $.ajax({
       type: "POST",
-      url: '../Accion/accionCambiarRol.php',
+      url: base_url+'Vista/Accion/accionCambiarRol.php',
       data: { idrol: idRol },
 
       success: function (respuesta) {
@@ -28,5 +29,5 @@ function recargarPagina() {
 }
 
 function irHome() {
-  location('header("Location: ../Vista/public/index.php")');
+  location.href = base_url+"Vista/private/index.php";
 }
