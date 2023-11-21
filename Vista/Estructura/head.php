@@ -1,23 +1,25 @@
 <?php
-$sesionActiva = $_SESSION['sesion-activa'];
-$MenuRol = new AbmMenuRol();
-if (isset($_SESSION['rol-activo'])){
-  $listaMenuRol = $MenuRol->buscar(["idrol"=>$_SESSION['rol-activo']->getIdRol()]);
-  $url = $_SERVER["REQUEST_URI"];
+$sesion = Session::getInstance();
+$sesionActiva = $sesion->getRolActivo()!==null;
+$listaMenu = [];
+
+if ($sesionActiva){
+  $listaMenu = $sesion->getListaMenu();
   $permiso = false;
-  foreach($listaMenuRol as $itemMenuRol){
-    if(strstr($_SERVER["REQUEST_URI"],$itemMenuRol->getObjMenu()->getMenuLink())!=false || strstr($_SERVER["REQUEST_URI"],"private/index.php")!=false || strstr($_SERVER["REQUEST_URI"],"private/perfil.php")!=false){
-        $permiso = true;
+  foreach($listaMenu as $itemMenu){
+    if(strstr($_SERVER["REQUEST_URI"],$itemMenu->getMenuLink())!=false){ 
+      $permiso = true;
       }
   }
-  if(!$permiso ){
+  if(!$sesion->tienePermiso){
     header("location:".BASE_URL."Vista/private/index.php?error=1");
   }
 } else if (strstr($_SERVER["REQUEST_URI"],"private")!=false){
   header("location:".BASE_URL."Vista/public/index.php?error=1");
 }
-    
-    ?>
+?>
+
+
 <!DOCTYPE html>
 <html lang="es">
   <head>

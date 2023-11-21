@@ -17,9 +17,8 @@ define('FONT_PATH', BASE_URL.'Vista/fonts/');
 $GLOBALS['error'] = array(
   1 => 'No posee permisos para acceder a esta página.',
   2 => 'No se pudo realizar la acción solicitada.',
-  3 => 'Hubo algún error inténte nuevamente más tarde.',);
+  3 => 'Hubo algún error inténte nuevamente más tarde.',
+);
 
-$_SESSION['ROOT'] = ROOT_PATH;
 $ROOT = ROOT_PATH; // Agrega esta línea para definir la variable $ROOT
 include_once(ROOT_PATH.'util/funciones.php');
-sesionActiva();

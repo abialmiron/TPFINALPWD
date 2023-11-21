@@ -1,8 +1,14 @@
 <?php
-if ($sesionActiva){
-  $listaMenu = construirMenu($_SESSION['rol-activo']);
-  
-}
+  // $sesion = Session::getInstance();
+  // $sesionActiva = isset($sesion->rolActivo);
+  // verEstructura($sesion->tienePermiso);
+  // verEstructura($sesion->rolActivo);
+// if ($sesionActiva){
+  // verEstructura($sesion->rolActivo);
+  // $listaMenu = $sesion->construirMenu($sesion->rolActivo);
+
+  // verEstructura($listaMenu);
+// }
 ?>
 <nav class="menu hidden navbar navbar-expand-lg bg-light shadow fixed-top">
   <div class="container-fluid">
@@ -12,7 +18,7 @@ if ($sesionActiva){
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
         <li class="nav-item p-0">
-          <a class="nav-link p-0 me-3 ms-3" href="<?php echo $sesionActiva? BASE_URL."Vista/private/":BASE_URL."Vista/public/"; ?>"><img style="height: 35px;" class="me-2" src="<?php echo BASE_URL."Vista/images/logotipo-menu-50.png"; ?>"/></a>
+          <a class="nav-link p-0 me-3 ms-3" href="<?php echo $sesionActiva? BASE_URL."Vista/private/index.php":BASE_URL."Vista/public/index.php"; ?>"><img style="height: 35px;" class="me-2" src="<?php echo BASE_URL."Vista/images/logotipo-menu-50.png"; ?>"/></a>
         </li>
         <!-- ITEMS DEL MENU -->
         <?php
@@ -52,15 +58,18 @@ if ($sesionActiva){
           <a href="#" class="d-block link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             <!-- <img src="https://github.com/mdo.png" alt="mdo" width="32" height="32" class="rounded-circle"> -->
             <i class="bi bi-person-circle"></i>
-            <span class="p-1"><?php echo $_SESSION['nombreUsuario']; ?> | <?php echo $_SESSION['rol-activo']->getRolDescripcion() ?></span>
+            <span class="p-1"><?php echo $sesion->getNombreUsuario(); ?> | <?php /*echo $sesion->getRolActivo->getRolDescripcion();*/ ?></span>
           </a> 
           <ul class="dropdown-menu dropdown-menu-end text-small shadow" style="">
             <li><a class="dropdown-item" href="<?php echo BASE_URL; ?>Vista/private/perfil.php">Perfil</a></li>
-           
+            <?php
+              $listaRoles = $sesion->getListaRoles();
+              if(count($listaRoles)>1) {
+                ?>
               <li><p class="dropdown-item link">Elegir Rol</p>
             <ul class="dropdown-menu dropdown-submenu dropdown-submenu-left">
               <?php
-              foreach ($_SESSION['roles'] as $rol){
+              foreach ($listaRoles as $rol){
                 ?>
               <li>
                 <a class="dropdown-item link" onclick="cambiarRol(<?php echo $rol->getIdRol(); ?>);" ><?php echo $rol->getRolDescripcion();?></a>
@@ -70,7 +79,9 @@ if ($sesionActiva){
               ?>
             </ul>
             </li>
-            
+            <?php
+              }
+            ?>
             <li><hr class="dropdown-divider"></li>
             <li><a class="dropdown-item link" onclick="cerrarSesion();">Sign out</a></li>
           </ul>

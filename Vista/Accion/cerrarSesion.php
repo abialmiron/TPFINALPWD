@@ -1,7 +1,7 @@
 <?php
 include_once('../../configuracion.php');
-
-$sesionCerrada=$_SESSION['objeto']->cerrar();
+$sesion = Session::getInstance();
+$sesionCerrada=$sesion->destroy();
 if($sesionCerrada){
     echo json_encode(array('success'=>1));
 }else{

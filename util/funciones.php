@@ -14,8 +14,9 @@ function data_submitted() {
             }
         }
         return $_AAux;
-        
 }
+
+
 function verEstructura($e){
     echo "<pre>";
     print_r($e);
@@ -32,36 +33,13 @@ spl_autoload_register(function($class_name) {
         $GLOBALS['ROOT'].'util/',
         $GLOBALS['ROOT'].'Test/',
     );
-    //print_object($directorys) ;
     foreach($directorys as $directory){
         if(file_exists($directory.$class_name . '.php')){
-            //  echo "se incluyo".$directory.$class_name . '.php';
             require_once($directory.$class_name . '.php');
             return;
         }
     }
 }
 );
-
-// Funciones para el menu
-function construirMenu($rolActivo){
-    $objMenuRol = new AbmMenuRol();
-    $listaMenuRol = $objMenuRol->buscar(['idrol'=>$rolActivo->getIdRol()]);
-    $listaMenu = [];
-    foreach ($listaMenuRol as $menuRol){
-        $listaMenu[] = $menuRol->getObjMenu();
-    }
-    $listaMenu = array_unique($listaMenu,SORT_REGULAR);
-    return $listaMenu;
-}
-
-// Funciones de sesión
-function sesionActiva(){
-    if(!isset($_SESSION['sesion-activa'])){
-        $_SESSION['objeto'] = new Session();
-        $_SESSION['sesion-activa'] = $_SESSION['objeto']->activa();
-    }   
-    return $_SESSION['sesion-activa'];
-}
 
 ?>

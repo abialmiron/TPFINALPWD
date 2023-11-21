@@ -4,17 +4,17 @@ $(document).ready(function () {
       const forms = document.querySelectorAll('.needs-validation');
       if (forms[0].checkValidity()) {
           var password = document.getElementById("password").value;
-          console.log(password)
+          // console.log(password)
           var passhash = hex_md5(password).toString();
-          console.log(passhash)
+          // console.log(passhash)
           document.getElementById("contraseñaEnviada").value = passhash;
-          console.log($(this).serialize())  
+          // console.log($(this).serialize())  
           $.ajax({
               type: "POST",
               url: base_url+'Vista/Accion/accionIniciarSesion.php',
               data: $(this).serialize(),
               success: function (response) {
-                  console.log(response)
+                   console.log(response)
                   var jsonData = JSON.parse(response);
 
                   // user is logged in successfully in the back-end
