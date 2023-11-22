@@ -12,3 +12,4 @@
 <script src="<?php echo BASE_URL ?>Vista/js/menu.js"></script>
 <script src="<?php echo BASE_URL ?>Vista/js/usuario.js"></script>
 <script src="<?php echo BASE_URL ?>Vista/js/cerrarSesion.js"></script>
+<script src="<?php echo BASE_URL ?>Vista/alertas/dist/sweetalert2.all.min.js"></script>
