@@ -6,10 +6,11 @@
 </body>
 </html>
 <!-- AQUI LOS LLAMADOS A SCRIPTS -->
+<script src="<?php echo BASE_URL ?>Vista/alertas/dist/sweetalert2.all.min.js"></script>
 <script src="<?php echo BASE_URL ?>Vista/js/jquery/jquery-3.7.1.min.js"></script>
 <script src="<?php echo BASE_URL ?>Vista/js/bootstrap.bundle.min.js"></script>
 <script src="<?php echo BASE_URL ?>Vista/js/validator.js"></script>
 <script src="<?php echo BASE_URL ?>Vista/js/menu.js"></script>
 <script src="<?php echo BASE_URL ?>Vista/js/usuario.js"></script>
 <script src="<?php echo BASE_URL ?>Vista/js/cerrarSesion.js"></script>
-<script src="<?php echo BASE_URL ?>Vista/alertas/dist/sweetalert2.all.min.js"></script>
+

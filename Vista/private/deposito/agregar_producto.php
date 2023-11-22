@@ -10,7 +10,7 @@ include_once(ROOT_PATH."Vista/Estructura/head.php");
             <h3>Agregar Producto</h3>
         </div>
         <div class="card-body">
-            <form method="post" action="../../Accion/accionAgregarProd.php" class="d-flex flex-column needs-validation" novalidate>
+            <form method="post" action="../../Accion/accionAgregarProd.php" enctype="multipart/form-data" class="d-flex flex-column needs-validation" novalidate>
                 <div class="mb-3">
                     <label>Nombre </label>
                     <input type="text" name="pronombre" id="pronombre" class="form-control text mt-2" required>
@@ -36,9 +36,16 @@ include_once(ROOT_PATH."Vista/Estructura/head.php");
                 </div>
                 <div class="mb-3">
                     <label>Importe </label>
-                    <input type="numeric" id="proimporte" class="form-control validate" required>
+                    <input type="numeric" name="proimporte" id="proimporte" class="form-control validate" required>
                     <div class="invalid-feedback">
                         Ingrese un importe.
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label>Imagen </label>
+                    <input type="file" name="proimagen" id="proimagen" class="form-control validate" required>
+                    <div class="invalid-feedback">
+                        Ingrese una imagen.
                     </div>
                 </div>
                 <div class="mb-3">
@@ -55,3 +62,4 @@ include_once(ROOT_PATH."Vista/Estructura/head.php");
 <?php
 include_once(ROOT_PATH."Vista/estructura/footer.php");
 ?>
+<script src="<?php echo BASE_URL ?>Vista/js/cargarProducto.js"></script>

@@ -19,8 +19,6 @@ if ($_FILES["proimagen"]["error"] <= 0) {
             echo json_encode(array('success'=>0));
         }
     }
-}else{
-    echo "ERROR: no se pudo cargar el archivo. No se pudo acceder al archivo Temporal";
 }
 
 ?>
