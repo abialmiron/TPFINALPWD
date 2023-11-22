@@ -10,7 +10,7 @@ function cambiarRol (idRol) {
           var jsonData = JSON.parse(respuesta);
           if (jsonData.success == "1") {
             alert('Se cambio el rol correctamente');
-              recargarPagina();
+              irHome();
           }
           else if (jsonData.success == "0") {
               failure()
