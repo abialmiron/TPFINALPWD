@@ -6,8 +6,6 @@ function cerrarSesion(){
         url: base_url+"Vista/Accion/cerrarSesion.php",
         success: function(response){
             var jsonData = JSON.parse(response);
-            // user is logged in successfully in the back-end
-            // let's redirect
             if (jsonData.success == "1"){
                 sesionCerrada();
             }
@@ -19,10 +17,23 @@ function cerrarSesion(){
 }
 
 function sesionCerrada(){
-    alert ('Se cerró la sesión');
-    location.href = base_url+"Vista/public/index.php";
+    Swal.fire({
+        icon: 'success',
+        title: 'Se cerró la sesión',
+        showConfirmButton: false,
+        timer: 1500
+    });
+    setTimeout(function () {
+        location.href = base_url+"Vista/public/index.php";
+    }, 1500);
 }
 
 function sesionNoCerrada(){
-    alert('No se cerró la sesión');
+    Swal.fire({
+        icon: 'success',
+        title: 'No se cerró la sesión',
+        showConfirmButton: false,
+        timer: 1500
+    });
+    setTimeout(function () {}, 1500);
 }

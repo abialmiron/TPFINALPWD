@@ -1,11 +1,6 @@
 <?php
 include_once("../../configuracion.php");
-
 include_once("../Estructura/head.php");
-if (isset ($_GET['error'])){
-    echo '<script language="javascript">alert("'.$GLOBALS['error'][$_GET['error']].'","danger");</script>';
-    }
-
 ?>
 <main>
     <div class="paravideo parallax">
@@ -36,4 +31,20 @@ if (isset ($_GET['error'])){
 
 <?php
 include_once("../estructura/footer.php");
-?>
+
+if (isset ($_GET['error'])){
+    ?>
+        <script language="javascript">
+            Swal.fire({
+                icon: "success",
+                title: "<?php echo $GLOBALS['error'][$_GET['error']];?>",
+                showConfirmButton: false,
+                timer: 1500
+            });
+            setTimeout(function () {
+                location.href = base_url+"Vista/public/index.php";
+            }, 1500);
+        </script>
+    <?php
+    }
+    ?>

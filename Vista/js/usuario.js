@@ -9,10 +9,16 @@ function cambiarRol (idRol) {
         console.log(respuesta)
           var jsonData = JSON.parse(respuesta);
           if (jsonData.success == "1") {
-            alert('Se cambio el rol correctamente');
+            Swal.fire({
+              icon: 'success',
+              title: 'Se cambio el rol correctamente',
+              showConfirmButton: false,
+              timer: 1500
+            });
+            setTimeout(function () {
               irHome();
-          }
-          else if (jsonData.success == "0") {
+            }, 1500);
+          }else if (jsonData.success == "0") {
               failure()
           }
       }
@@ -21,7 +27,15 @@ function cambiarRol (idRol) {
 
 
 function failure() {
-  alert( 'No se pudo cambiar el rol');
+  Swal.fire({
+    icon: 'success',
+    title: 'No se pudo cambiar el rol',
+    showConfirmButton: false,
+    timer: 1500
+  });
+  setTimeout(function () {
+      recargarPagina();
+  }, 1500 );
 }
 
 function recargarPagina() {

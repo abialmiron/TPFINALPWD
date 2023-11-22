@@ -4,21 +4,14 @@ $(document).ready(function () {
       const forms = document.querySelectorAll('.needs-validation');
       if (forms[0].checkValidity()) {
           var password = document.getElementById("password").value;
-          // console.log(password)
           var passhash = hex_md5(password).toString();
-          // console.log(passhash)
           document.getElementById("contraseñaEnviada").value = passhash;
-          // console.log($(this).serialize())  
           $.ajax({
               type: "POST",
               url: base_url+'Vista/Accion/accionIniciarSesion.php',
               data: $(this).serialize(),
               success: function (response) {
-                   console.log(response)
                   var jsonData = JSON.parse(response);
-
-                  // user is logged in successfully in the back-end
-                  // let's redirect
                   if (jsonData.success == "1") {
                       registerSuccess();
                   }
@@ -36,8 +29,16 @@ $(document).ready(function () {
 });
 
 function registerSuccess() {
-  alert('Se inicio sesion correctamente!');
+  Swal.fire({
+    icon: 'success',
+    title: 'Se inicio sesion correctamente!',
+    showConfirmButton: false,
+    timer: 1500
+});
+  setTimeout(function () {
       redireccionarIndex();
+    }, 1500);
+
 }
 
 
@@ -46,7 +47,16 @@ function redireccionarIndex() {
 }
 
 function registerFailure() {
-  alert ('La contraseña y/o el usuario no coinciden!');
+  Swal.fire({
+    icon: 'success',
+    title: 'La contraseña y/o el usuario no coinciden!',
+    showConfirmButton: false,
+    timer: 1500
+    });
+  setTimeout(function () {
+      recargarPagina();
+    }, 1500);
+
 }
   
 

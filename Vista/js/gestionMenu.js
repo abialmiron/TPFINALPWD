@@ -6,7 +6,6 @@ function editarMenu(idMenu){
     url: base_url+'Vista/Accion/accionEditarMenu.php',
     data: $(this).serialize(),
     success: function (response) {
-        console.log(response)
         var jsonData = JSON.parse(response);
 
         // user is logged in successfully in the back-end

@@ -12,10 +12,14 @@ function verDetalle(datos) {
   cantidadInfo = document.getElementById("cantidadDetalle");
   cantidadInput = document.getElementById("cantidadInput");
   idProductoInput = document.getElementById("idProducto");
-  console.log(datos);
+  // console.log(datos);
   // imagenInfo.src = datos.children[0].children[0].children[0].src;
   // nombreInfo.innerHTML = datos.children[0].children[1].children[0].childNodes[0].nodeValue;
-  nombreInfo.innerHTML = "añlskdjafñsdlkjf"
+  // nombreInfo.innerHTML = datos.
+  //guardar dentro de nombreInfo el nombre del producto que está dentro de datos y su id es "nombreProducto"
+  // nombreInfo.innerHTML = datos.children[0].children[1].children[0].childNodes[0].nodeValue;
+  console.log(datos.children);
+  
   // descripcionInfo.innerHTML = datos.children[0].children[1].children[1].childNodes[0].nodeValue;
   // precioInfo.innerHTML = "Precio: $ " + datos.children[0].children[1].children[2].childNodes[0].nodeValue;
   // cantidadInfo.innerHTML = "Cantidad de Stock: " + datos.children[0].children[1].children[3].childNodes[0].nodeValue;

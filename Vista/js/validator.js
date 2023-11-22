@@ -7,10 +7,8 @@ $(document).ready(function() {
   function validarUsuario() {
     var usuario = $('#usuario').val();
     if (usuarioRegex.test(usuario)) {
-      console.log('Usuario válido');
       $(this).removeClass("is-invalid");
     } else {
-      console.log('Usuario inválido');
       $(this).addClass("is-invalid");
     }
   }
@@ -19,10 +17,8 @@ $(document).ready(function() {
   function validarPassword() {
     var password = $('#password').val();
     if (passwordRegex.test(password)) {
-      console.log('Contraseña válida');
       $(this).removeClass("is-invalid");
     } else {
-      console.log('Contraseña inválida');
       $(this).addClass("is-invalid");
     }
   }
