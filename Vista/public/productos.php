@@ -24,26 +24,50 @@ if (count($listaProductos) > 0) {
 								<p class="card-text" id= "descripcionProducto"><?php echo $producto->getProdetalle(); ?></p>
 								<div class="row">
 									<p class="card-text col" id= "precioProducto">Precio: $<?php echo $producto->getProimporte(); ?></p>
-									<p class="card-text col" id= "cantidadProducto">Stock: 1</p>
+									<p class="card-text col" id= "stock">Disponible: <?php echo $producto->getProcantstock(); ?></p>
 								</div>
 							</div>
 						</div>
-								<div class="card-footer z-3">
-									<div class="row align-content-end">
-										<?php
+						<div class="card-footer z-3">
+							<form method="get" action="#">
+
+								<div class="row align-content-end">
+									<div class="input-group mb-3 col">
+										<!-- <span class="input-group-text" id="inputGroup-sizing-default">Cantidad:</span>
+										<input type="number" class="form-control " id= "cantidadProducto" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="1"> -->
+										<input type="number" class="form-control d-none" id= "cantidadProducto" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" placeholder="1" value=1> 
+									</div>
+									<?php
 											if ($sesion->getRolActivo()!== null) {
 												if ($sesion->getRolActivo()->getRolDescripcion() == "Cliente") {
 													?>
-													<button class="btn btn-primary" id="sumarCarrito" data-id="<?php echo $producto->getIdproducto(); ?>" onclick = "agregarCarrito(<?php echo $producto->getIdproducto(); ?>, <?php echo $sesion->getIdUsuario(); ?>,<?php echo 1; ?>)"><i class="bi bi-cart-plus-fill"></i></button>
-													<?php
+													<div class="col-3">
+														<button tytpe="submit" class="btn btn-primary" id="sumarCarrito" data-id="<?php echo $producto->getIdproducto(); ?>" 
+														onclick = "agregarCarrito(<?php echo $producto->getIdproducto(); ?>,<?php echo $sesion->getIdUsuario(); ?>, 1)">
+														<i class="bi bi-cart-plus-fill"></i>
+													</button>
+												</div>
+												<?php
 												} 
 											}else {
 												?>
-												<button class="btn btn-primary" id="sumarCarrito" data-id="<?php echo $producto->getIdproducto(); ?>" onclick = "alert('registrate')"><i class="bi bi-cart-plus-fill"></i></button>
+												<div class="col-3">
+													<button class="btn btn-primary" tytpe="submit" id="sumarCarrito" data-id="<?php echo $producto->getIdproducto(); ?>" onclick = "Swal.fire({
+      icon: 'error',
+      title: 'Hay que iniciar sesion para agregar al carrito',
+      showConfirmButton: false,
+      timer: 1500
+    })
+
+  setTimeout(function () {
+      location.href = base_url+'Vista/public/login.php';
+  }, 1500);"><i class="bi bi-cart-plus-fill"></i></button>
+												</div>
 												<?php
 											}
-										?>
+											?>
 								</div>
+							</form>
 						</div>
 					</div>
 				</div>
@@ -91,7 +115,7 @@ if (count($listaProductos) > 0) {
 				<p id="precioDetalle"></p>
 			</div>
 			<div class="modal-footer">
-				<form method="post" action="../Accion/accionRegistrarse.php" class="needs-validation" novalidate>
+				<form method="post" action="#" class="needs-validation" novalidate>
 					<input type="text" name="idProducto" id="idDetalle" class="d-none">
 					<div>
 						<input type="number" name="ciCantidad" id="cantidadInput" min="1" class="form-control" placeholder="Ingrese la cantidad que desea comprar" required>
@@ -102,7 +126,7 @@ if (count($listaProductos) > 0) {
 							Correcto!
 						</div>
 					</div>
-					<input class="btn btn-success me-2" type="submit" name="boton_enviar" id="boton_enviar" value="Agregar al Carrito">
+					<input class="btn btn-success me-2"  name="boton_enviar" id="boton_enviar" value="Agregar al Carrito" onclick = "agregarCarrito(<?php echo $producto->getIdproducto(); ?>,<?php echo $sesion->getIdUsuario(); ?>, 1)">
 					<!-- <button class="btn btn-danger" data-bs-dismiss="modal" aria-label="Close">Cerrar</button> -->
 				</form>
 			</div>

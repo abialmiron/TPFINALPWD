@@ -25,6 +25,8 @@ agregarCarrito = (idProducto,idCliente, cantidad) => {
   // console.log(idProducto);
   // console.log(idCliente);
   // console.log(cantidad);
+  cicantidad = document.getElementById("cantidadProducto").value
+  console.log(cicantidad)
   let datos = {
     idproducto: idProducto,
     idusuario: idCliente,
@@ -38,29 +40,40 @@ agregarCarrito = (idProducto,idCliente, cantidad) => {
       console.log(response)
         var jsonData = JSON.parse(response);
         if (jsonData.success == "1"){
-          exitoAgregarCarrito(true);
+          exitoAgregarCarrito(1);
+        }
+        else if (jsonData.success == "2"){
+          exitoAgregarCarrito(2);
         }
         else if (jsonData.success == "0"){
-          exitoAgregarCarrito(false);
+          exitoAgregarCarrito(0);
         }
    }
 });
 
 function exitoAgregarCarrito($exito){
-  $exito?
-  Swal.fire({
-      icon: 'success',
-      title: 'Producto agregado al carrito',
+  $exito == 1 ?
+    Swal.fire({
+        icon: 'success',
+        title: 'Producto agregado al carrito',
+        showConfirmButton: false,
+        timer: 1500
+    })
+  : $exito == 2 ?
+    Swal.fire({
+      icon: 'error',
+      title: 'No hay suficiente stock',
       showConfirmButton: false,
       timer: 1500
-  })
+    })
   :
-  Swal.fire({
-    icon: 'error',
-    title: 'No se pudo agregar al carrito',
-    showConfirmButton: false,
-    timer: 1500
-  });
+    Swal.fire({
+      icon: 'error',
+      title: 'No se pudo agregar al carrito',
+      showConfirmButton: false,
+      timer: 1500
+    })
+
   setTimeout(function () {
       recargarPagina();
   }, 1500);

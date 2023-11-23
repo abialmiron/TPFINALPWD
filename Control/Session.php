@@ -264,15 +264,14 @@ class Session
 			$objUsuario = $objAbmUsuario->buscar($param)[0];
 			$this->setObjUsuario($objUsuario);
 			$this->setIdUsuario($objUsuario->getIdUsuario());
-			$param = ["idusuario"=>$_SESSION['idUsuario']];
-			$objRol = new AbmRol();
+			$param = ["idusuario"=>$this->getIdUsuario()];
 			$objUsuarioRol = new AbmUsuarioRol();
-			$listaRoles = [];
-			$this->setNombreUsuario($objUsuario->getUsNombre());
 			$listaUsuarioRol = $objUsuarioRol->buscar($param);
+			$listaRoles = [];
 			foreach($listaUsuarioRol as $usuarioRol){
-					array_push($listaRoles,$usuarioRol->getObjRol());
+				array_push($listaRoles,$usuarioRol->getObjRol());
 			}
+			$this->setNombreUsuario($objUsuario->getUsNombre());
 			$this->setListaRoles($listaRoles);
 			$this->setRolActivo($listaRoles[0]);
 			$this->setListaMenu($this->getRolActivo());

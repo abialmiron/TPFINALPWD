@@ -2,9 +2,7 @@
 
 include_once("../../configuracion.php");
 
-/**************************************/
-/********* PROGRAMA GENERAL ***********/
-/**************************************/
+/*       MAIN       */
 $datos = data_submitted();// Recibe idproducto, idusuario, cicantidad
 $objCompraEstadoCarrito = null;
 $arrayCompras = null;
@@ -23,9 +21,7 @@ if (($arrayCompras == null) || ($objCompraEstadoCarrito == null)) {
     cargarProducto($objCompraEstadoCarrito, $datos);
 }
 
-/**************************************/
-/**************** MODULOS *************/
-/**************************************/
+/*       MODULOS        */
 
 /* Busca con el id usuario todos las compras que realizo */
 function buscarComprasUsuario($datos)
@@ -39,13 +35,11 @@ function buscarComprasUsuario($datos)
 function cargarProducto($objCompraEstadoCarrito, $datos)
 {
     $datos["idcompra"] = $objCompraEstadoCarrito->getIdCompra();
-    $idCompra = $datos["idcompra"];
+    $idCompraItem = ["idcompra"=>$datos["idcompra"], "idproducto"=>$datos["idproducto"]];
     $objAbmCompraItem = new AbmCompraItem();
-    $arrayCompraItem = $objAbmCompraItem->buscar($idCompra);
-    verEstructura($arrayCompraItem);
-    // verEstructura($datos);
+    $arrayCompraItem = $objAbmCompraItem->buscar($idCompraItem);
+
     $objCompraItemRepetido = productoRepetido($arrayCompraItem, $datos["idcompra"]);
-    // verEstructura($objCompraItemRepetido);
     if ($objCompraItemRepetido == null) {
         if ($objAbmCompraItem->alta($datos)) {
             echo json_encode(array('success' => 1));
@@ -53,10 +47,11 @@ function cargarProducto($objCompraEstadoCarrito, $datos)
             echo json_encode(array('success' => 0));
         }
     } else {
+        $sesion = Session::getInstance();
         $cantStockDisp = $objCompraItemRepetido->getObjProducto()->getProcantstock();
         $cantTot = $datos["cicantidad"] + $objCompraItemRepetido->getCiCantidad();
         if ($cantTot > $cantStockDisp) {
-            echo json_encode(array('success' => 0));
+            echo json_encode(array('success' => 2));
         } else {
             $param = [
                 "idcompraitem" => $objCompraItemRepetido->getIdCompraItem(),
@@ -74,7 +69,6 @@ function cargarProducto($objCompraEstadoCarrito, $datos)
 function productoRepetido($arrayCompraItem, $idCompra)
 {
     $resp = null;
-    // verEstructura($arrayCompraItem);
     if ($arrayCompraItem !== []) {
         foreach ($arrayCompraItem as $compraItem) {
             if ($compraItem->getObjCompra()->getIdCompra() == $idCompra) {

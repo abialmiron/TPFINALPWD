@@ -7,5 +7,4 @@ if ($objUsuario->alta($data)) {
 } else {
     echo json_encode(array('success'=>0));
 }
-
 ?>
