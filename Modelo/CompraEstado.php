@@ -105,13 +105,13 @@ class CompraEstado{
 
     public function insertar(){
 		$base=new BaseDatos();
-		$resp= false;
+		$resp= null;
 		$consultaInsertar="INSERT INTO compraestado(idcompra,idcompraestadotipo)
 				VALUES ('".$this->getObjCompra()->getIdCompra()."','".$this->getObjCompraEstadoTipo()->getIdCompraEstadoTipo()."')";
 		if($base->Iniciar()){
             $id = $base->EjecutarInsert($consultaInsertar);
 			if($id != null){
-			    $resp=  true;
+			    $resp=  $id;
 				$this->setIdCompraEstado($id);
 			}else{
 				$this->setMensajeOperacion("compraestado->insertar: ".$base->getError());

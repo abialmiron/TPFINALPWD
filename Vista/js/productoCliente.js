@@ -12,17 +12,59 @@ function verDetalle(datos) {
   cantidadInfo = document.getElementById("cantidadDetalle");
   cantidadInput = document.getElementById("cantidadInput");
   idProductoInput = document.getElementById("idProducto");
-  // console.log(datos);
-  // imagenInfo.src = datos.children[0].children[0].children[0].src;
-  // nombreInfo.innerHTML = datos.children[0].children[1].children[0].childNodes[0].nodeValue;
-  // nombreInfo.innerHTML = datos.
-  //guardar dentro de nombreInfo el nombre del producto que está dentro de datos y su id es "nombreProducto"
-  // nombreInfo.innerHTML = datos.children[0].children[1].children[0].childNodes[0].nodeValue;
-  console.log(datos.children);
-  
-  // descripcionInfo.innerHTML = datos.children[0].children[1].children[1].childNodes[0].nodeValue;
-  // precioInfo.innerHTML = "Precio: $ " + datos.children[0].children[1].children[2].childNodes[0].nodeValue;
-  // cantidadInfo.innerHTML = "Cantidad de Stock: " + datos.children[0].children[1].children[3].childNodes[0].nodeValue;
+  imagenInfo.src = datos.querySelector('#fotoProducto').src;
+  nombreInfo.innerHTML = datos.querySelector('#nombreProducto').innerHTML;
+  descripcionInfo.innerHTML = datos.querySelector('#descripcionProducto').innerHTML;
+  precioInfo.innerHTML = datos.querySelector('#precioProducto').innerHTML;
+  cantidadInfo.innerHTML = datos.querySelector('#cantidadProducto').innerHTML;
   // cantidadInput.setAttribute("max", datos.children[0].children[1].children[3].childNodes[0].nodeValue);
   // idProductoInput.value = datos.children[0].children[1].children[4].childNodes[0].nodeValue;
+}
+
+agregarCarrito = (idProducto,idCliente, cantidad) => {
+  // console.log(idProducto);
+  // console.log(idCliente);
+  // console.log(cantidad);
+  let datos = {
+    idproducto: idProducto,
+    idusuario: idCliente,
+    cicantidad: cantidad
+  }
+  $.ajax({
+    type: "POST",
+    url: base_url+"Vista/Accion/accionAgregarItemCarrito.php",
+    data: datos,
+    success: function(response){
+      console.log(response)
+        var jsonData = JSON.parse(response);
+        if (jsonData.success == "1"){
+          exitoAgregarCarrito(true);
+        }
+        else if (jsonData.success == "0"){
+          exitoAgregarCarrito(false);
+        }
+   }
+});
+
+function exitoAgregarCarrito($exito){
+  $exito?
+  Swal.fire({
+      icon: 'success',
+      title: 'Producto agregado al carrito',
+      showConfirmButton: false,
+      timer: 1500
+  })
+  :
+  Swal.fire({
+    icon: 'error',
+    title: 'No se pudo agregar al carrito',
+    showConfirmButton: false,
+    timer: 1500
+  });
+  setTimeout(function () {
+      recargarPagina();
+  }, 1500);
+}
+
+  
 }

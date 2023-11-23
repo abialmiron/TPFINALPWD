@@ -160,5 +160,29 @@ class AbmCompraEstado{
         return $arreglo;
     }
 
+
+    /*
+        * Retorna el objeto Compra con estado "carrito" del usuario
+        * @param array $param
+        * @return object
+        */
+    public function buscarObjCompraEstadoCarrito($arrayComprasUsuario){
+        $objCompraEstadoCarrito = null;
+        $i = 0;
+        if ($arrayComprasUsuario !== []) {
+            foreach($arrayComprasUsuario as $compra) {
+                $idCompra["idcompra"] = $compra->getIdCompra();
+                $arrayCompraEstado = $this->buscar($idCompra);
+                if ($arrayCompraEstado!==[]){
+                    if ($arrayCompraEstado[0]->getObjCompraEstadoTipo()->getIdCompraEstadoTipo() == 0) {
+                        $objCompraEstadoCarrito = $arrayCompraEstado[0]->getObjCompra();
+                    } 
+                }
+            }
+        }
+        return $objCompraEstadoCarrito;
+    }
+        
+
 }
 ?>

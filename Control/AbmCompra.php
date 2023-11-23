@@ -82,8 +82,7 @@ class AbmCompra{
         $resp = false;
         $objCompra = new Compra();
         $objCompra = $this->cargarObjetoSinID($param);
-
-        if ($objCompra!=null && $objCompra->insertar()){
+        if ($objCompra!=null && $objCompra->insertar($param)){
             $resp = true;
         }
         

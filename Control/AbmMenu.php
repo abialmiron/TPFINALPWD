@@ -68,7 +68,6 @@ class AbmMenu{
         $param['idmenu'] =null;
         $param['medeshabilitado'] = null;
         $elObjtTabla = $this->cargarObjeto($param);
-//        verEstructura($elObjtTabla);
         if ($elObjtTabla!=null and $elObjtTabla->insertar()){
             $resp = true;
         }

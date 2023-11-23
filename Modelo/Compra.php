@@ -80,13 +80,13 @@ class Compra{
 
     public function insertar(){
 		$base=new BaseDatos();
-		$resp= false;
+		$resp= null;
 		$consultaInsertar="INSERT INTO compra(cofecha,idusuario)
 				VALUES ('".$this->getCoFecha()."','".$this->getObjUsuario()->getIdUsuario()."')";
 		if($base->Iniciar()){
-            $id = $base->EjecutarInsert($consultaInsertar);
+            $id = $base->Ejecutar($consultaInsertar);
 			if($id != null){
-			    $resp=  true;
+			    $resp=  $id;
 				$this->setIdCompra($id);
 			}else{
 				$this->setMensajeOperacion("compra->insertar: ".$base->getError());

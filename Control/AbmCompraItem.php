@@ -85,9 +85,9 @@ class AbmCompraItem{
     public function alta($param){
         
         $resp = false;
-        $objCompraItem = new CompraItem();
+        $objCompra = new CompraItem();
+        $objCompra = new AbmCompraEstado();
         $objCompraItem = $this->cargarObjetoSinID($param);
-
         if ($objCompraItem!=null && $objCompraItem->insertar()){
             $resp = true;
         }
@@ -123,7 +123,6 @@ class AbmCompraItem{
             $objCompraItem = $this->cargarObjeto($param);
             if($objCompraItem !=null && $objCompraItem->modificar()){
                 $resp = true;
-                
             }
         }
         return $resp;
@@ -139,13 +138,13 @@ class AbmCompraItem{
         $where = " true ";
         if ($param<>NULL){
             if  (isset($param['idcompraitem']))
-            $where.=" and idcompraitem='".$param['idcompraitem']."'";
+            $where.=" and idcompraitem= ".$param['idcompraitem'];
             if  (isset($param['idproducto']))
-            $where.=" and idproducto ='".$param['idproducto']."'";
+            $where.=" and idproducto =".$param['idproducto'];
             if  (isset($param['idcompra']))
-            $where.=" and idcompra ='".$param['idcompra']."'";
+            $where.=" and idcompra =".$param['idcompra'];
             if  (isset($param['cicantidad']))
-            $where.=" and cicantidad ='".$param['cicantidad']."'";
+            $where.=" and cicantidad =".$param['cicantidad'];
         }
         
         $arreglo = CompraItem::listar($where);

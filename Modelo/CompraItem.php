@@ -69,7 +69,7 @@ class CompraItem{
      public function cargar(){
         $resp = false;
         $base=new BaseDatos();
-        $sql="SELECT * FROM compraitem WHERE idcompraitem = ".$this->getIdCompraItem();
+        $sql="SELECT * FROM compraitem WHERE idcompraitem =". $this->getIdCompraItem();
         if ($base->Iniciar()) {
             $res = $base->Ejecutar($sql);
             if($res>-1){
@@ -93,13 +93,13 @@ class CompraItem{
 
     public function insertar(){
 		$base=new BaseDatos();
-		$resp= false;
+		$resp= null;
 		$consultaInsertar="INSERT INTO compraitem(idproducto,idcompra,cicantidad)
 				VALUES ('".$this->getObjProducto()->getIdproducto()."','".$this->getObjCompra()->getIdCompra()."','".$this->getCiCantidad()."')";
 		if($base->Iniciar()){
-            $id = $base->EjecutarInsert($consultaInsertar);
+            $id = $base->Ejecutar($consultaInsertar);
 			if($id != null){
-			    $resp=  true;
+			    $resp=  $id;
 				$this->setIdCompraItem($id);
 			}else{
 				$this->setMensajeOperacion("compraitem->insertar: ".$base->getError());
@@ -114,11 +114,10 @@ class CompraItem{
         $resp = false;
         $base = new BaseDatos();
         $sql = "UPDATE compraitem SET
-        idcompra = '" . $this->getObjCompra()->getIdCompra(). "',
-        idproducto = '" . $this->getObjProducto()->getIdproducto(). "',
-        cicantidad = '" . $this->getCiCantidad(). "',
-        WHERE idcompraitem = '" . $this->getIdCompraItem() . "'";
-    
+        idcompra = " . $this->getObjCompra()->getIdCompra(). ",
+        idproducto = " . $this->getObjProducto()->getIdproducto(). ",
+        cicantidad = " . $this->getCiCantidad(). "
+        WHERE idcompraitem = " . $this->getIdCompraItem();
         if ($base->Iniciar()) {
             if ($base->Ejecutar($sql)) {
                 $resp = true;
@@ -152,7 +151,7 @@ class CompraItem{
         $base=new BaseDatos();
         $sql="SELECT * FROM compraitem ";
         if ($parametro!="") {
-            $sql.='WHERE '.$parametro;
+            $sql.=' WHERE '.$parametro;
         }
         $res = $base->Ejecutar($sql);
         if($res>-1){

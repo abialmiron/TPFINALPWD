@@ -16,17 +16,36 @@ if (count($listaProductos) > 0) {
 					?>
 
 				<div class="col-md-4 mb-4">
-					<a class="link-light" data-bs-toggle="modal" href="#modalDetalle" role="button">
-						<div class="card" onclick="verDetalle(this)">
-							<img src="<?php echo $dir.$producto->getProimagen(); ?>" class="card-img-top rounded" id= "fotoProducto" alt="">
+					<div class="card " onclick="verDetalle(this)">
+						<div class="" data-bs-toggle="modal" href="#modalDetalle" role="button">
+							<img src="<?php echo $dir.$producto->getProimagen(); ?>" class="card-img-top object-fit-cover"  height="200" id= "fotoProducto" alt="">
 							<div class="card-body">
 								<h5 class="card-title" id= "nombreProducto"><?php echo $producto->getPronombre(); ?></h5>
 								<p class="card-text" id= "descripcionProducto"><?php echo $producto->getProdetalle(); ?></p>
-								<p class="card-text" id= "precioProducto">$<?php echo $producto->getProimporte(); ?></p>
-								<button class="btn btn-primary btn-sm" id="sumarCarrito" data-id="<?php echo $producto->getIdproducto(); ?>"><i class="bi bi-cart-plus-fill"></i></button>
+								<div class="row">
+									<p class="card-text col" id= "precioProducto">Precio: $<?php echo $producto->getProimporte(); ?></p>
+									<p class="card-text col" id= "cantidadProducto">Stock: 1</p>
+								</div>
 							</div>
 						</div>
-					</a>
+								<div class="card-footer z-3">
+									<div class="row align-content-end">
+										<?php
+											if ($sesion->getRolActivo()!== null) {
+												if ($sesion->getRolActivo()->getRolDescripcion() == "Cliente") {
+													?>
+													<button class="btn btn-primary" id="sumarCarrito" data-id="<?php echo $producto->getIdproducto(); ?>" onclick = "agregarCarrito(<?php echo $producto->getIdproducto(); ?>, <?php echo $sesion->getIdUsuario(); ?>,<?php echo 1; ?>)"><i class="bi bi-cart-plus-fill"></i></button>
+													<?php
+												} 
+											}else {
+												?>
+												<button class="btn btn-primary" id="sumarCarrito" data-id="<?php echo $producto->getIdproducto(); ?>" onclick = "alert('registrate')"><i class="bi bi-cart-plus-fill"></i></button>
+												<?php
+											}
+										?>
+								</div>
+						</div>
+					</div>
 				</div>
 				<?php
 			}
@@ -65,7 +84,7 @@ if (count($listaProductos) > 0) {
 				<div class="col">
 					<h3 id="nombreDetalle"></h3>
 					<p id="descripcionDetalle"></p>
-					<p id="cantidad_detalle"></p>
+					<p id="cantidadDetalle"></p>
 				</div>
 			</div>
 			<div>
@@ -73,9 +92,9 @@ if (count($listaProductos) > 0) {
 			</div>
 			<div class="modal-footer">
 				<form method="post" action="../Accion/accionRegistrarse.php" class="needs-validation" novalidate>
-					<input type="text" name="idProducto" id="idProducto" class="d-none">
+					<input type="text" name="idProducto" id="idDetalle" class="d-none">
 					<div>
-						<input type="number" name="ciCantidad" id="cantidad_input" min="1" class="form-control" placeholder="Ingrese la cantidad que desea comprar" required>
+						<input type="number" name="ciCantidad" id="cantidadInput" min="1" class="form-control" placeholder="Ingrese la cantidad que desea comprar" required>
 						<div class="invalid-feedback mb-1">
 							No hay stock suficiente!
 						</div>

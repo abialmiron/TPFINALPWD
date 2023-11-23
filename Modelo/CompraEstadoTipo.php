@@ -76,13 +76,13 @@ class CompraEstadoTipo{
 
     public function insertar(){
 		$base=new BaseDatos();
-		$resp= false;
+		$resp= null;
 		$consultaInsertar="INSERT INTO compraestadotipo(cetdescripcion,cetdetalle)
 				VALUES ('".$this->getCetDescripcion()."','".$this->getCetDetalle()."')";
 		if($base->Iniciar()){
             $id = $base->EjecutarInsert($consultaInsertar);
 			if($id != null){
-			    $resp=  true;
+			    $resp=  $id;
 				$this->setIdCompraEstadoTipo($id);
 			}else{
 				$this->setMensajeOperacion("compraestadotipo->insertar: ".$base->getError());
